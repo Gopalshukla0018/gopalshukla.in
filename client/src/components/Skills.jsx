@@ -17,19 +17,18 @@ import { Layers } from "lucide-react";
 
 export default function Skills() {
   const skillCategories = [
-  {
-  title: "Frontend & UI",
-  icon: Code,
-  color: "from-purple-500 to-blue-500",
-  skills: [
-    { name: "React.js", icon: SiReact, color: "text-blue-400" },
-    { name: "Next.js", icon: SiNextdotjs, color: "text-white" },
-    { name: "TypeScript", icon: SiTypescript, color: "text-blue-500" },
-    { name: "Tailwind CSS", icon: SiTailwindcss, color: "text-cyan-400" },
-    { name: "shadcn/ui", icon: null, color: "text-slate-300" },
-  ]
-}
-,
+    {
+      title: "Frontend & UI",
+      icon: Code,
+      color: "from-purple-500 to-blue-500",
+      skills: [
+        { name: "React.js", icon: SiReact, color: "text-blue-400" },
+        { name: "Next.js", icon: SiNextdotjs, color: "text-foreground" },
+        { name: "TypeScript", icon: SiTypescript, color: "text-blue-500" },
+        { name: "Tailwind CSS", icon: SiTailwindcss, color: "text-cyan-400" },
+        { name: "shadcn/ui", icon: null, color: "text-slate-300" },
+      ],
+    },
     {
       title: "Backend Engineering",
       icon: Server,
@@ -62,7 +61,7 @@ export default function Skills() {
       icon: Cloud,
       color: "from-orange-500 to-red-500",
       skills: [
-        { name: "Git & GitHub", icon: null, color: "text-white" },
+        { name: "Git & GitHub", icon: null, color: "text-foreground" },
         { name: "Postman", icon: SiPostman, color: "text-orange-500" },
         { name: "Docker", icon: SiDocker, color: "text-blue-500" },
         { name: "Google APIs", icon: null, color: "text-yellow-500" },
@@ -91,7 +90,7 @@ export default function Skills() {
                   >
                     <category.icon className="text-2xl text-white" size={24} />
                   </div>
-                  <h3 className="text-xl font-bold text-white">
+                  <h3 className="text-xl font-bold text-foreground">
                     {category.title}
                   </h3>
                 </div>
@@ -99,7 +98,7 @@ export default function Skills() {
                   {category.skills.map((skill, idx) => (
                     <span
                       key={idx}
-                      className="bg-white/5 px-3 py-1 rounded-full text-sm flex items-center gap-2 text-gray-300"
+                      className="bg-secondary px-3 py-1 rounded-full text-sm flex items-center gap-2 text-secondary-foreground"
                     >
                       {skill.icon && <skill.icon className={skill.color} />}
                       {skill.name}

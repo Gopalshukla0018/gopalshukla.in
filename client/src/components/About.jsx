@@ -84,15 +84,15 @@ export default function About() {
               <span>About Me</span>
             </div>
 
-            <h2 className="text-4xl md:text-5xl font-bold text-white">
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground">
               Turning complex problems into{" "}
               <span className="gradient-text">simple code.</span>
             </h2>
 
-            <div className="text-gray-400 text-lg leading-relaxed space-y-4">
+            <div className="text-muted-foreground text-lg leading-relaxed space-y-4">
               <p>
                 I'm a result-oriented{" "}
-                <span className="text-white font-medium">
+                <span className="text-foreground font-medium">
                   Full-Stack Engineer
                 </span>{" "}
                 experienced in architecting B2B SaaS solutions using the{" "}
@@ -101,16 +101,18 @@ export default function About() {
               </p>
               <p>
                 Currently leading tech at{" "}
-                <span className="text-white font-medium">
+                <span className="text-foreground font-medium">
                   {" "}
-                  LTravelGrowIndia
+                  TravelGrowIndia
                 </span>
                 , building high-concurrency systems. Beyond code, I run an{" "}
-                <span className="text-white font-medium">
+                <span className="text-foreground font-medium">
                   educational YouTube channel
                 </span>{" "}
                 followed by{" "}
-                <span className="text-white font-medium">1.7K+ students</span>{" "}
+                <span className="text-foreground font-medium">
+                  1.7K+ students
+                </span>{" "}
                 and enjoy helping others learn.
               </p>
             </div>
@@ -123,9 +125,9 @@ export default function About() {
           </div>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 pt-10 border-t border-white/5">
+        <div className="grid lg:grid-cols-2 gap-12 pt-10 border-t border-border">
           <div className="space-y-8">
-            <h3 className="text-2xl font-bold text-white flex items-center gap-3">
+            <h3 className="text-2xl font-bold text-foreground flex items-center gap-3">
               <div className="p-2 bg-emerald-500/10 rounded-lg text-accent-emerald">
                 <Briefcase size={24} />
               </div>
@@ -139,10 +141,10 @@ export default function About() {
                 >
                   <CardContent className="p-6">
                     <div className="flex justify-between items-start mb-2">
-                      <h4 className="text-xl font-bold text-white group-hover:text-purple-primary transition-colors">
+                      <h4 className="text-xl font-bold text-foreground group-hover:text-purple-primary transition-colors">
                         {exp.title}
                       </h4>
-                      <span className="text-xs font-mono bg-white/5 px-2 py-1 rounded text-gray-400">
+                      <span className="text-xs font-mono bg-secondary px-2 py-1 rounded text-muted-foreground">
                         {exp.period}
                       </span>
                     </div>
@@ -160,7 +162,7 @@ export default function About() {
                       {exp.tags.map((t, i) => (
                         <span
                           key={i}
-                          className="text-xs bg-white/5 text-gray-300 px-2 py-1 rounded border border-white/5 group-hover:border-purple-500/30 transition-colors"
+                          className="text-xs bg-secondary text-secondary-foreground px-2 py-1 rounded border border-border group-hover:border-purple-500/30 transition-colors"
                         >
                           {t}
                         </span>
@@ -173,7 +175,7 @@ export default function About() {
           </div>
 
           <div className="space-y-8">
-            <h3 className="text-2xl font-bold text-white flex items-center gap-3">
+            <h3 className="text-2xl font-bold text-foreground flex items-center gap-3">
               <div className="p-2 bg-blue-500/10 rounded-lg text-blue-primary">
                 <GraduationCap size={24} />
               </div>
@@ -187,14 +189,14 @@ export default function About() {
                 >
                   <CardContent className="p-6">
                     <div className="flex justify-between items-start mb-2">
-                      <h4 className="text-xl font-bold text-white group-hover:text-blue-primary transition-colors">
+                      <h4 className="text-xl font-bold text-foreground group-hover:text-blue-primary transition-colors">
                         {edu.degree}
                       </h4>
-                      <span className="text-xs font-mono bg-white/5 px-2 py-1 rounded text-gray-400">
+                      <span className="text-xs font-mono bg-secondary px-2 py-1 rounded text-muted-foreground">
                         {edu.year}
                       </span>
                     </div>
-                    <p className="text-white/80 mb-2">{edu.school}</p>
+                    <p className="text-foreground/80 mb-2">{edu.school}</p>
                     {/* <p className="text-sm text-gray-500">{edu.desc}</p> */}
                   </CardContent>
                 </Card>
@@ -214,11 +216,11 @@ function CounterCard({ target, label, icon: Icon, color }) {
     <Card ref={elementRef} className="glass-card border-0 card-hover group">
       <CardContent className="p-5 flex flex-col items-center justify-center text-center h-full">
         <div
-          className={`p-3 rounded-xl bg-white/5 mb-3 group-hover:scale-110 transition-transform duration-300 ${color.replace("text-", "bg-").replace("500", "500/20").replace("400", "400/20")}`}
+          className={`p-3 rounded-xl bg-secondary mb-3 group-hover:scale-110 transition-transform duration-300 ${color.replace("text-", "bg-").replace("500", "500/20").replace("400", "400/20")}`}
         >
           <Icon size={24} className={color} />
         </div>
-        <div className="text-3xl font-bold text-white mb-1">
+        <div className="text-3xl font-bold text-foreground mb-1">
           {count}
           {label.includes("%") ? "" : "+"}
         </div>
