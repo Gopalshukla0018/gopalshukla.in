@@ -18,7 +18,7 @@ const ChatBotContact = () => {
   const [messages, setMessages] = useState([
     {
       role: "bot",
-      text: "Hello! 👋 I'm Gopal's AI Assistant.\n\nYou can tap the topics below to learn about my work, or just chat with me directly! First, may I know your name?",
+      text: "Hello! 👋 I'm Gopal's AI Assistant.\n\nMay I know your name?",
     },
   ]);
   const [step, setStep] = useState(0);
@@ -43,126 +43,13 @@ const ChatBotContact = () => {
     }
   }, [messages, isTyping]);
 
-  
-
-  const quickTopics = [
-    {
-      id: "stack",
-      label: "🛠️ Tech Stack",
-      icon: <Code2 size={14} />,
-      keywords: ["tech stack", "technologies", "skills", "react", "node"],
-      answer:
-        "🚀 **Tech Stack:**\n• **Frontend:** React.js, Next.js, Tailwind, Framer Motion\n• **Backend:** Node.js, Express, Hono\n• **DB:** MongoDB, PostgreSQL\n• **DevOps:** Docker, VPS, CloudPanel",
-    },
-    {
-      id: "projects",
-      label: "📂 Projects",
-      icon: <Briefcase size={14} />,
-      keywords: ["projects", "portfolio", "work", "built", "case study"],
-      answer:
-        "📂 **Key Projects:**\n1. **TravelGrowIndia** (Leads Marketplace)\n2. **Skills Mittra** (LMS with Payments)\n3. **AI Lead Gen Chatbot** (This one!)\n\nCheck code: https://github.com/gopalshukla0018/",
-    },
-    {
-      id: "experience",
-      label: "💼 Experience",
-      icon: <UserCheck size={14} />,
-      keywords: ["experience", "background", "history", "years", "work"],
-      answer:
-        "💼 **Experience:**\nGopal is currently the **Tech Lead at TravelGrowIndia**,managing automation systems. Previously, he was a Frontend Intern at Huguen. He focuses on shipping production-ready code, not just counting years.",
-    },
-    {
-      id: "pricing",
-      label: "💰 Pricing",
-      icon: <DollarSign size={14} />,
-      keywords: ["price", "cost", "charge", "rate", "money", "budget", "quote"],
-      answer:
-        "💰 **Pricing:**\nRates depend on complexity. A landing page is cheaper than a SaaS. If you complete this chat, Gopal will send you a **Free Quote** tailored to your needs.",
-    },
-    {
-      id: "hire",
-      label: "🔥 Why Hire?",
-      icon: <Sparkles size={14} />,
-      keywords: ["hire", "job", "resume", "cv", "why hire"],
-      answer:
-        "🔥 **Why Hire Gopal?**\nUnlike average devs, Gopal builds **Business Assets**. He understands Sales, ROI, and Automation. He doesn't just write code; he solves expensive problems.",
-    },
-    {
-      id: "socials",
-      label: "🌐 Socials",
-      icon: <Globe size={14} />,
-      keywords: [
-        "socials",
-        "contact",
-        "github",
-        "linkedin",
-        "youtube",
-        "insta",
-      ],
-      answer:
-        "🌐 **Connect with Gopal:**\n• LinkedIn: https://www.linkedin.com/in/gopalshukla0018/\n• GitHub: https://github.com/gopalshukla0018/\n• YouTube: https://www.youtube.com/@gopalshukla0018",
-    },
+  const projectOptions = [
+    "Hire Me / Work Opportunity",
+    "Project Collaboration",
+    "Freelance Work",
+    "Ask About My Projects",
+    "Other Question",
   ];
-
-  // HELPER: Render Text with Clickable Links ---
-  const renderMessageWithLinks = (text) => {
-    const urlRegex = /(https?:\/\/[^\s]+)/g;
-    return text.split(urlRegex).map((part, index) => {
-      if (part.match(urlRegex)) {
-        return (
-          <a
-            key={index}
-            href={part}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-blue-600 dark:text-cyan-400 underline hover:opacity-80 transition-colors break-all font-medium"
-          >
-            {part}
-          </a>
-        );
-      }
-      // Bold markdown simulation (text)
-      const parts = part.split(/(\*\*.*?\*\*)/g);
-      return parts.map((subPart, i) => {
-        if (subPart.startsWith("**") && subPart.endsWith("**")) {
-          return (
-            <strong key={i} className="font-bold text-gray-900 dark:text-white">
-              {subPart.slice(2, -2)}
-            </strong>
-          );
-        }
-        return subPart;
-      });
-    });
-  };
-
-  // ---  SMART LOGIC ---
-
-  const handleSmallTalk = (text) => {
-    if (/\b(thank|thx|thanks)\b/i.test(text))
-      return "You're welcome! Let's continue. 😊";
-    if (/\b(bye|goodbye)\b/i.test(text))
-      return "Goodbye! Hope to connect soon. 👋";
-    if (/\b(hi|hello|hey|greetings)\b/i.test(text))
-      return "Hello again! How can I help? 🚀";
-    return null;
-  };
-
-  const findAnswer = (text) => {
-    const lowerText = text.toLowerCase();
-    const match = quickTopics.find(
-      (topic) =>
-        topic.keywords.some((k) => lowerText.includes(k)) ||
-        lowerText.includes(topic.label.toLowerCase()),
-    );
-    return match ? match.answer : null;
-  };
-
-  const isGibberish = (text) => {
-    const uniqueChars = new Set(text).size;
-    if (text.length > 6 && uniqueChars < 3) return true;
-    if (/^[b-df-hj-np-tv-z]+$/i.test(text) && text.length > 5) return true;
-    return false;
-  };
 
   const handleSend = async (manualInput = null) => {
     const currentInput = manualInput || input;
@@ -179,85 +66,60 @@ const ChatBotContact = () => {
 
     setTimeout(async () => {
       let replyText = "";
-      let shouldNudge = false;
       let nextStep = step;
 
-      // 1. Check Knowledge Base
-      const kbAnswer = findAnswer(currentInput);
-
-      if (kbAnswer) {
-        replyText = kbAnswer;
-        shouldNudge = true;
-      } else if (isGibberish(currentInput)) {
-        replyText = "I didn't quite catch that. Could you type clearly? 😅";
-      } else if (handleSmallTalk(currentInput)) {
-        replyText = handleSmallTalk(currentInput);
-      } else {
-        // 2. Form Logic
-        if (step === 0) {
-          // Name Validation
-          if (currentInput.length < 2 || /\d/.test(currentInput)) {
-            replyText =
-              "That doesn't look like a real name. Please enter your full name.";
-          } else {
-            setLeadData((prev) => ({ ...prev, name: currentInput }));
-            replyText = `Nice to meet you, ${currentInput}! 🚀\n\nWhat is your professional **Email address**?`;
-            nextStep = 1;
-          }
-        } else if (step === 1) {
-          // Email Validation
-          if (!/\S+@\S+\.\S+/.test(currentInput)) {
-            replyText =
-              "Invalid email format. Please try again (e.g., name@company.com).";
-          } else {
-            setLeadData((prev) => ({ ...prev, email: currentInput }));
-            replyText =
-              "Got it! ✅ What brings you here today? (Select an option or ask a question)";
-            nextStep = 2;
-          }
-        } else if (step === 2) {
-          // Project Type
-          setLeadData((prev) => ({ ...prev, subject: currentInput }));
+      // 1. Form Logic
+      if (step === 0) {
+        // Name Validation
+        if (currentInput.length < 2 || /\d/.test(currentInput)) {
           replyText =
-            "Excellent. Could you describe your project or requirement in a few words?";
-          nextStep = 3;
-        } else if (step === 3) {
-          // Description & Submit
-          if (currentInput.length < 5) {
-            replyText =
-              "Please provide a bit more detail so Gopal can understand your needs.";
-          } else {
-            //  API CALL RESTORED HERE
-            const fullChatHistory = [
+            "That doesn't look like a real name. Please enter your full name.";
+        } else {
+          setLeadData((prev) => ({ ...prev, name: currentInput }));
+          replyText = `Nice to meet you, ${currentInput}! 🚀\n\nWhat is your professional **Email address**?`;
+          nextStep = 1;
+        }
+      } else if (step === 1) {
+        // Email Validation
+        if (!/\S+@\S+\.\S+/.test(currentInput)) {
+          replyText =
+            "Invalid email format. Please try again (e.g., name@company.com).";
+        } else {
+          setLeadData((prev) => ({ ...prev, email: currentInput }));
+          replyText =
+            "Got it! ✅ What brings you here today? (Select an option below)";
+          nextStep = 2;
+        }
+      } else if (step === 2) {
+        // Project Type from options
+        setLeadData((prev) => ({ ...prev, subject: currentInput }));
+        
+        if (currentInput === "Other Question") {
+           replyText = "Sure, please type your message below.";
+           nextStep = 3; 
+        } else {
+           // Skip message and auto submit
+           replyText = `Understood. Submitting your inquiry for "${currentInput}"...`;
+           nextStep = 4;
+           submitData(currentInput, currentInput, [
               ...messages,
               { role: "user", text: currentInput },
-            ];
-
-            try {
-              const response = await fetch("/api/contact", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                  ...leadData,
-                  message: currentInput,
-                  chatHistory: fullChatHistory,
-                }),
-              });
-
-              if (response.ok) {
-                replyText =
-                  "All done! 🎉 Your message is sent. Gopal will reply shortly via email.";
-                nextStep = 4;
-              } else {
-                throw new Error("Failed to send");
-              }
-            } catch (e) {
-              console.error(e);
-              replyText =
-                "⚠️ Error sending message. Please email directly: hello@gopalshukla.in";
-              // Note: We don't advance step on error so they can try again or copy info
-            }
-          }
+              { role: "bot", text: replyText }
+           ]);
+        }
+      } else if (step === 3) {
+        // Custom message Description & Submit
+        if (currentInput.length < 5) {
+          replyText =
+            "Please provide a bit more detail so Gopal can understand your needs.";
+        } else {
+          replyText = "Submitting your message...";
+          nextStep = 4;
+          submitData(leadData.subject, currentInput, [
+              ...messages,
+              { role: "user", text: currentInput },
+              { role: "bot", text: replyText }
+           ]);
         }
       }
 
@@ -267,27 +129,50 @@ const ChatBotContact = () => {
         {
           role: "bot",
           text: replyText,
-          isOptions: nextStep === 2 && !kbAnswer,
+          isOptions: nextStep === 2,
         },
       ]);
       setStep(nextStep);
 
-      // Nudge logic
-      if (shouldNudge && nextStep < 4) {
-        setTimeout(() => {
-          const prompts = [
-            "Anyway, may I know your name to proceed?",
-            "So, what is the best Email to reach you?",
-            "Back to business—what kind of project is this?",
-            "Could you add more details about your request?",
-          ];
+    }, thinkingTime);
+  };
+  
+  const submitData = async (subject, message, fullChatHistory) => {
+      setIsTyping(true);
+      try {
+        const response = await fetch("/api/contact", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            ...leadData,
+            subject: subject,
+            message: message,
+            chatHistory: fullChatHistory,
+          }),
+        });
+
+        if (response.ok) {
           setMessages((prev) => [
             ...prev,
-            { role: "bot", text: prompts[step] },
+            { role: "bot", text: "All done! 🎉 Your message is sent. Gopal will reply shortly via email." }
           ]);
-        }, 2000);
+          setStep(5);
+        } else {
+          throw new Error("Failed to send");
+        }
+      } catch (e) {
+        console.error(e);
+        setMessages((prev) => [
+            ...prev,
+            { role: "bot", text: "⚠️ Error sending message. Please email directly: hello@gopalshukla.in" }
+        ]);
+        setStep(5);
+      } finally {
+        setIsTyping(false);
+        setTimeout(() => {
+          scrollRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+        }, 100);
       }
-    }, thinkingTime);
   };
 
   const handleKeyDown = (e) => {
@@ -297,14 +182,11 @@ const ChatBotContact = () => {
     }
   };
 
-  const projectOptions = [
-    "Build a SaaS",
-    "Website Dev",
-    "Automation",
-    "Hiring / Job",
-    "General Inquiry",
-    "Youtube Collab",
-  ];
+
+
+  const renderMessageWithLinks = (text) => {
+    return text;
+  };
 
   return (
     <div className="w-full flex justify-center">
@@ -399,50 +281,25 @@ const ChatBotContact = () => {
           <div ref={scrollRef} className="h-1" />
         </div>
 
-        {/* --- QUICK ACTIONS SYSTEM (Horizontal Scroll) --- */}
-        <AnimatePresence>
-          {step < 4 && !isTyping && (
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 10 }}
-              className="px-3 pb-2 flex gap-2 overflow-x-auto scrollbar-hide mask-fade shrink-0"
-            >
-              {quickTopics.map((topic) => (
-                <button
-                  key={topic.id}
-                  type="button"
-                  onClick={() => handleSend(topic.label)}
-                  className="whitespace-nowrap px-3 py-1.5 rounded-full text-[11px] md:text-[12px] font-medium transition-all flex items-center gap-1.5 flex-shrink-0 border shadow-sm
-                bg-gray-100 text-gray-600 border-gray-200 hover:bg-blue-50 hover:text-blue-600 hover:border-blue-200
-                dark:bg-white/5 dark:text-gray-400 dark:border-white/10 dark:hover:text-cyan-300 dark:hover:border-cyan-500/50 dark:hover:bg-cyan-500/10"
-                >
-                  {topic.icon} {topic.label}{" "}
-                  <ChevronRight size={10} className="opacity-50" />
-                </button>
-              ))}
-            </motion.div>
-          )}
-        </AnimatePresence>
 
-      
         {/* --- Input Area --- */}
-        {step < 4 ? (
+        {step < 5 ? (
           <div
-            className="p-3 md:p-4 border-t flex gap-2 md:gap-3 shrink-0 transition-colors relative z-20
+            className={`p-3 md:p-4 border-t flex gap-2 md:gap-3 shrink-0 transition-colors relative z-20
           bg-white border-gray-200 
-          dark:bg-[#0a0a0a] dark:border-white/10"
+          dark:bg-[#0a0a0a] dark:border-white/10 ${(step === 2 || step === 4) && !isTyping ? "opacity-50 pointer-events-none" : ""}`}
           >
             <input
               type="text"
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={handleKeyDown}
-              // 👇 FIX: Sirf tab disable hoga jab bot soch raha ho (isTyping). Step 2 pe ab open rahega.
-              disabled={isTyping}
+              disabled={isTyping || step === 2 || step === 4}
               placeholder={
                 step === 2
-                  ? "Select option or type here..."
+                  ? "Select option above..."
+                  : step === 4
+                  ? "Submitting..."
                   : "Type your message..."
               }
               className="flex-1 rounded-xl px-4 py-3 text-sm outline-none focus:ring-1 transition-all disabled:opacity-50
@@ -452,8 +309,7 @@ const ChatBotContact = () => {
             <button
               type="button"
               onClick={() => handleSend()}
-            
-              disabled={isTyping || !input.trim()}
+              disabled={isTyping || !input.trim() || step === 2 || step === 4}
               className="p-3 rounded-xl transition-all shadow-lg disabled:opacity-50 disabled:cursor-not-allowed active:scale-95
             bg-blue-600 hover:bg-blue-700 text-white
             dark:bg-cyan-600 dark:hover:bg-cyan-700"

@@ -1,5 +1,6 @@
 import Message from '../models/Message.js';
 import sendEmail from '../utils/sendEmail.js';
+import ChatConversation from '../models/ChatConversation.js';
 import { contactAutoReply } from '../templates/contactTemplate.js';
 
 export const sendMessage = async (req, res) => {
@@ -14,7 +15,7 @@ export const sendMessage = async (req, res) => {
     
     let formattedTranscript = `<p>${message}</p>`; // Default fallback
     
-    if (chatHistory && Array.isArray(chatHistory)) {
+    if (chatHistory && Array.isArray(chatHistory) && chatHistory.length > 0) {
       formattedTranscript = chatHistory.map(msg => {
         const role = msg.role === 'bot' ? '🤖 <b>AI Assistant</b>' : '👤 <b>User</b>';
         const color = msg.role === 'bot' ? '#e3f2fd' : '#f5f5f5';
@@ -49,6 +50,14 @@ export const sendMessage = async (req, res) => {
         </div>
       `
     });
+
+    // Save Chat Conversation for Admin Dashboard
+    if (chatHistory && Array.isArray(chatHistory) && chatHistory.length > 0) {
+      await ChatConversation.create({
+        sessionId: email, 
+        transcript: formattedTranscript
+      });
+    }
 
     
     await sendEmail({

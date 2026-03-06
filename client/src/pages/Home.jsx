@@ -5,7 +5,7 @@ import Projects from "@/components/Projects.jsx";
 
 import FloatingElements from "@/components/FloatingElements.jsx";
 import Testimonials from "../components/Testimonials";
-// import Resources from "../components/Resources";
+
 import Contact from "../components/Contact";
 
 export default function Home() {

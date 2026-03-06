@@ -18,7 +18,7 @@ export default function About() {
       color: "text-red-500",
     },
     {
-      target: 125000,
+      target: 136000,
       label: "Total Views",
       icon: Youtube,
       color: "text-red-400",
@@ -96,7 +96,7 @@ export default function About() {
                   Full-Stack Engineer
                 </span>{" "}
                 experienced in architecting B2B SaaS solutions using the{" "}
-                <span className="text-purple-400">MERN stack</span>. I
+                <span className="text-purple-600 dark:text-purple-400">MERN stack</span>. I
                 specialize in backend automation that actually saves time.
               </p>
               <p>
@@ -153,7 +153,7 @@ export default function About() {
                       href={exp.companyUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-lg text-purple-400 font-medium mb-3 inline-flex items-center gap-2 hover:underline hover:text-purple-primary transition-colors"
+                      className="text-lg text-purple-600 dark:text-purple-400 font-medium mb-3 inline-flex items-center gap-2 hover:underline hover:text-purple-primary transition-colors"
                     >
                       {exp.company}
                     </a>

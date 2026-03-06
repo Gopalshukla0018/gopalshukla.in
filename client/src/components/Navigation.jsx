@@ -2,14 +2,15 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Sun, Moon, BookOpen, LayoutGrid } from "lucide-react";
 import { useTheme } from "@/components/ThemeProvider.jsx";
-import { Link, useLocation } from "wouter";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { theme, toggleTheme } = useTheme();
 
-  const [location, setLocation] = useLocation();
+  const { pathname: location } = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,7 +23,7 @@ export default function Navigation() {
 
   const scrollToSection = (sectionId) => {
     if (location !== "/") {
-      setLocation("/");
+      navigate("/");
       setTimeout(() => {
         const element = document.getElementById(sectionId);
         if (element) {
@@ -51,7 +52,7 @@ export default function Navigation() {
         <div className="flex justify-between items-center h-16">
           <div
             className="flex-shrink-0 cursor-pointer"
-            onClick={() => setLocation("/")}
+            onClick={() => navigate("/")}
           >
             <span className="text-2xl font-bold gradient-text">GS</span>
           </div>
@@ -68,13 +69,13 @@ export default function Navigation() {
                 </button>
               ))}
 
-              {/* Link points to /blog n*/}
-              <Link href="/blog">
-                <a className="flex items-center gap-2 px-4 py-2 bg-primary/10 text-primary hover:bg-primary hover:text-white rounded-full transition-all duration-300 font-bold text-sm border border-primary/20 cursor-pointer">
-                  <LayoutGrid size={16} />
-                  <span className="hidden lg:inline">Blogs</span>
-                  <span className="lg:hidden">Blogs</span>
-                </a>
+              <Link
+                to="/blog"
+                className="flex items-center gap-2 px-4 py-2 bg-primary/10 text-primary hover:bg-primary hover:text-white rounded-full transition-all duration-300 font-bold text-sm border border-primary/20 cursor-pointer"
+              >
+                <LayoutGrid size={16} />
+                <span className="hidden lg:inline">Blogs</span>
+                <span className="lg:hidden">Blogs</span>
               </Link>
 
               <Button
@@ -90,11 +91,10 @@ export default function Navigation() {
 
           {/* Mobile menu button */}
           <div className="md:hidden flex items-center space-x-2">
-            {/* UPDATED: Mobile Header Icon points to /blog */}
-            <Link href="/blog">
-              <Button variant="ghost" size="icon" className="text-primary">
+            <Link to="/blog">
+              <span className="flex items-center justify-center text-primary w-9 h-9">
                 <LayoutGrid size={20} />
-              </Button>
+              </span>
             </Link>
 
             <Button
@@ -129,15 +129,13 @@ export default function Navigation() {
                 </button>
               ))}
 
-              {/* UPDATED: Mobile Menu Link points to /blog */}
-              <Link href="/blog">
-                <a
-                  onClick={() => setIsOpen(false)}
-                  className="flex items-center gap-2 w-full text-left px-3 py-2 text-primary font-bold hover:bg-primary/10 transition-colors duration-300 cursor-pointer"
-                >
-                  <LayoutGrid size={16} />
-                  Blogs
-                </a>
+              <Link
+                to="/blog"
+                onClick={() => setIsOpen(false)}
+                className="flex items-center gap-2 w-full text-left px-3 py-2 text-primary font-bold hover:bg-primary/10 transition-colors duration-300 cursor-pointer"
+              >
+                <LayoutGrid size={16} />
+                Blogs
               </Link>
             </div>
           </div>

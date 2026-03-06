@@ -1,5 +1,3 @@
-// client/src/data/blogsData.js
-
 export const blogsData = [
   {
     id: "1",
@@ -11,6 +9,8 @@ export const blogsData = [
     date: "Jan 10, 2025",
     readTime: "5 min read",
     category: "Career Strategy",
+    coverImageUrl: "https://lh3.googleusercontent.com/d/1r_l1_xthPpi8yqyn_lMXceL3LL4Xg8zO",
+    likes: 12,
     type: "custom-templates", // 🔥 UI component map
     content: {
       detailTitle: "Cold Email Templates That Actually Get Replies",

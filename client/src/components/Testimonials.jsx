@@ -26,7 +26,7 @@ export default function Testimonials() {
   return (
     <section
       id="testimonials"
-      className="py-20 relative overflow-hidden bg-black/20"
+      className="py-20 relative overflow-hidden dark:bg-black/20 bg-muted/30"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16">
@@ -34,13 +34,13 @@ export default function Testimonials() {
             <Linkedin size={14} />
             <span>Verified Recommendations</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
             What <span className="text-[#0077b5]">Engineering Leaders Say</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Endorsements from{" "}
-            <span className="text-white font-medium">Engineering Leads</span>{" "}
-            and <span className="text-white font-medium">Founders</span> I've
+            <span className="text-foreground font-medium">Engineering Leads</span>{" "}
+            and <span className="text-foreground font-medium">Founders</span> I've
             collaborated with.
           </p>
         </div>
@@ -54,7 +54,7 @@ export default function Testimonials() {
               <CardContent className="p-8 flex flex-col h-full">
                 <div className="flex justify-between items-start mb-6">
                   <div className="flex items-center gap-4">
-                    <div className="w-14 h-14 rounded-full border-2 border-white/10 overflow-hidden flex-shrink-0">
+                    <div className="w-14 h-14 rounded-full border-2 border-border overflow-hidden flex-shrink-0">
                       {t.image ? (
                         <img
                           src={t.image}
@@ -69,13 +69,13 @@ export default function Testimonials() {
                     </div>
 
                     <div>
-                      <h4 className="text-white font-bold text-lg leading-none mb-1">
+                      <h4 className="text-foreground font-bold text-lg leading-none mb-1">
                         {t.name}
                       </h4>
-                      <p className="text-xs text-purple-400 font-medium mb-0.5">
+                      <p className="text-xs dark:text-purple-400 text-purple-600 font-medium mb-0.5">
                         {t.role}
                       </p>
-                      <p className="text-xs text-gray-500 font-semibold">
+                      <p className="text-xs text-muted-foreground font-semibold">
                         {t.company}
                       </p>
                     </div>
@@ -85,16 +85,16 @@ export default function Testimonials() {
 
                 <div className="relative mb-6 flex-grow">
                   <Quote
-                    className="absolute -top-2 -left-2 text-white/5 transform -scale-x-100"
+                    className="absolute -top-2 -left-2 dark:text-white/5 text-black/5 transform -scale-x-100"
                     size={40}
                   />
-                  <p className="text-gray-300 leading-relaxed text-sm relative z-10 pl-2">
+                  <p className="dark:text-gray-300 text-foreground/90 leading-relaxed text-sm relative z-10 pl-2">
                     "{t.text}"
                   </p>
                 </div>
 
-                <div className="pt-6 border-t border-white/5 flex justify-between items-center mt-auto">
-                  <span className="text-xs text-gray-500 font-mono">
+                <div className="pt-6 border-t border-border flex justify-between items-center mt-auto">
+                  <span className="text-xs text-muted-foreground font-mono">
                     {t.date}
                   </span>
 

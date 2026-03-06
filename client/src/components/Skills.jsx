@@ -26,7 +26,7 @@ export default function Skills() {
         { name: "Next.js", icon: SiNextdotjs, color: "text-foreground" },
         { name: "TypeScript", icon: SiTypescript, color: "text-blue-500" },
         { name: "Tailwind CSS", icon: SiTailwindcss, color: "text-cyan-400" },
-        { name: "shadcn/ui", icon: null, color: "text-slate-300" },
+        { name: "shadcn/ui", icon: null, color: "text-slate-500 dark:text-slate-300" },
       ],
     },
     {
@@ -35,7 +35,7 @@ export default function Skills() {
       color: "from-green-500 to-emerald-500",
       skills: [
         { name: "Node.js", icon: SiNodedotjs, color: "text-green-500" },
-        { name: "Express.js", icon: SiExpress, color: "text-gray-400" },
+        { name: "Express.js", icon: SiExpress, color: "text-gray-600 dark:text-gray-400" },
         { name: "REST APIs", icon: null, color: "text-orange-400" },
         { name: "JWT Auth", icon: null, color: "text-yellow-400" },
       ],

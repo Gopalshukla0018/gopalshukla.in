@@ -8,13 +8,15 @@ import {
   User,
   Briefcase,
   AlertTriangle,
+  Heart,
+  Youtube
 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 
 // Accepts dynamic blog data from the CMS
-const ColdEmailBlog = ({ data }) => {
+const ColdEmailBlog = ({ data, liked, likesCount, handleLike }) => {
   const [copiedIndex, setCopiedIndex] = useState(null);
 
   if (!data || !data.content) {
@@ -313,17 +315,44 @@ const ColdEmailBlog = ({ data }) => {
               replies. Had 2 interviews. Got 1 offer.
             </p>
 
-            <Button
-              size="lg"
-              variant="secondary"
-              className="font-bold gap-2 h-14 px-8 text-lg"
-              onClick={() =>
-                window.open("https://youtube.com/@gopalshukla0018", "_blank")
-              }
-            >
-              Watch My Full Stack Roadmap <ArrowRight size={20} />
-            </Button>
+            <div className="flex flex-col items-center justify-center gap-4 mt-6">
+              <div className="relative group cursor-pointer inline-block" onClick={() => window.open("https://youtu.be/SnnLK6dfSGs", "_blank")}>
+                {/* Glowing Background Effect */}
+                <div className="absolute -inset-1 bg-gradient-to-r from-red-600 to-orange-600 rounded-2xl blur opacity-40 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-pulse"></div>
+                
+                {/* Button container */}
+                <div className="relative flex items-center gap-3 bg-card border border-red-500/30 text-card-foreground px-8 py-4 rounded-2xl shadow-2xl transition-all duration-300 group-hover:-translate-y-1">
+                  <div className="bg-red-600 text-white p-2.5 rounded-full flex items-center justify-center">
+                    <Youtube size={26} className="fill-white" />
+                  </div>
+                  <div className="flex flex-col text-left">
+                    <span className="text-xs font-bold text-red-500 uppercase tracking-widest mb-0.5">Watch Video Guide</span>
+                    <span className="text-lg md:text-xl font-extrabold flex items-center gap-2">
+                      From 0 Replies to 10 Interview Calls <ArrowRight size={18} className="text-muted-foreground group-hover:text-foreground transition-colors" />
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
+        </div>
+
+        {/* Like Section */}
+        <div className="mt-16 flex flex-col items-center justify-center border-t border-border pt-10 pb-4">
+          <h3 className="text-xl font-bold mb-4">Did you find this strategy helpful?</h3>
+          <Button 
+            variant="outline" 
+            size="lg" 
+            className={`rounded-full gap-2 transition-all duration-300 ${liked ? 'border-red-500 bg-red-50 text-red-500 dark:bg-red-950/20' : 'hover:border-red-500 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-950/20'}`}
+            onClick={handleLike}
+            disabled={liked}
+          >
+            <Heart 
+              className={`transition-all duration-300 ${liked ? 'fill-red-500 text-red-500 scale-110' : 'text-muted-foreground'}`} 
+            />
+            <span className="font-semibold text-lg">{likesCount}</span>
+            {liked && <span className="ml-2 font-normal">Thanks for the love!</span>}
+          </Button>
         </div>
 
         {/* About Author */}

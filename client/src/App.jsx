@@ -1,4 +1,4 @@
-import { Switch, Route, useLocation } from "wouter";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { queryClient } from "./lib/queryClient.js";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
@@ -14,8 +14,15 @@ import FloatingContact from "./components/FloatingContact.jsx";
 import { useEffect } from "react";
 import BlogPost from "./pages/BlogPost.jsx";
 
+// Admin Pages
+import AdminLogin from "./pages/admin/AdminLogin.jsx";
+import DashboardHome from "./pages/admin/DashboardHome.jsx";
+import ChatMessages from "./pages/admin/ChatMessages.jsx";
+import BlogManagement from "./pages/admin/BlogManagement.jsx";
+import AudienceManagement from "./pages/admin/AudienceManagement.jsx";
+
 function ScrollToTop() {
-  const [pathname] = useLocation();
+  const { pathname } = useLocation();
 
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "instant" });
@@ -24,15 +31,33 @@ function ScrollToTop() {
   return null;
 }
 
-function Router() {
-  return (
-    <Switch>
-      <Route path="/" component={Home} />
-      <Route path="/blog" component={BlogList} />
+function MainLayout() {
+  const { pathname } = useLocation();
+  const isAdminRoute = pathname.startsWith("/gopaldashboardportfolio");
 
-      <Route path="/blog/:slug" component={BlogPost} />
-      <Route component={NotFound} />
-    </Switch>
+  return (
+    <>
+      <ScrollToTop />
+      {!isAdminRoute && <Navigation />}
+      <div className={!isAdminRoute ? "min-h-screen pt-16" : ""}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/blog" element={<BlogList />} />
+          <Route path="/blog/:slug" element={<BlogPost />} />
+          
+          {/* Admin Routes */}
+          <Route path="/gopaldashboardportfolio/login" element={<AdminLogin />} />
+          <Route path="/gopaldashboardportfolio/dashboard" element={<DashboardHome />} />
+          <Route path="/gopaldashboardportfolio/chats" element={<ChatMessages />} />
+          <Route path="/gopaldashboardportfolio/blogs" element={<BlogManagement />} />
+          <Route path="/gopaldashboardportfolio/audience" element={<AudienceManagement />} />
+
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </div>
+      {!isAdminRoute && <Footer />}
+      {!isAdminRoute && <FloatingContact />}
+    </>
   );
 }
 
@@ -42,14 +67,9 @@ function App() {
       <ThemeProvider defaultTheme="dark">
         <TooltipProvider>
           <Toaster />
-          <ScrollToTop />
-          <Navigation />
-          <div className="min-h-screen pt-16">
-            <Router />
-          </div>
-          <Footer />
-
-          <FloatingContact />
+          <BrowserRouter>
+            <MainLayout />
+          </BrowserRouter>
         </TooltipProvider>
       </ThemeProvider>
     </QueryClientProvider>
