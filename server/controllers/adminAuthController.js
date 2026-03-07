@@ -3,11 +3,11 @@ import sendEmail from '../utils/sendEmail.js';
 import jwt from 'jsonwebtoken';
 import crypto from 'crypto';
 
-const ADMIN_EMAIL = process.env.ADMIN_EMAIL;
-const OTP_DELIVERY_EMAIL = process.env.OTP_DELIVERY_EMAIL;
-
 export const requestOTP = async (req, res) => {
   try {
+    const ADMIN_EMAIL = process.env.ADMIN_EMAIL;
+    const OTP_DELIVERY_EMAIL = process.env.OTP_DELIVERY_EMAIL;
+
     const { email } = req.body;
 
     if (email !== ADMIN_EMAIL) {
@@ -42,6 +42,7 @@ export const requestOTP = async (req, res) => {
 
 export const verifyOTP = async (req, res) => {
   try {
+    const ADMIN_EMAIL = process.env.ADMIN_EMAIL;
     const { email, otp } = req.body;
 
     if (email !== ADMIN_EMAIL) {
