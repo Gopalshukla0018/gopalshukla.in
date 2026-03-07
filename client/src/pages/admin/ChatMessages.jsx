@@ -12,7 +12,7 @@ export default function ChatMessages() {
   const fetchChats = async () => {
     try {
       const token = localStorage.getItem("adminToken");
-      const res = await fetch(`http://localhost:5000/api/admin/chats?status=${filter}`, {
+      const res = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000/api'}/admin/chats?status=${filter}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       if (res.ok) {
@@ -33,7 +33,7 @@ export default function ChatMessages() {
     if (chat.status === "Unread") {
       try {
         const token = localStorage.getItem("adminToken");
-        await fetch(`http://localhost:5000/api/admin/chats/${chat._id}/read`, {
+        await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000/api'}/admin/chats/${chat._id}/read`, {
           method: "PUT",
           headers: { Authorization: `Bearer ${token}` }
         });
@@ -52,7 +52,7 @@ export default function ChatMessages() {
 
     try {
       const token = localStorage.getItem("adminToken");
-      const res = await fetch(`http://localhost:5000/api/admin/chats/${id}`, {
+      const res = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000/api'}/admin/chats/${id}`, {
         method: "DELETE",
         headers: { Authorization: `Bearer ${token}` }
       });

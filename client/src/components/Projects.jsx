@@ -67,18 +67,18 @@ export default function Projects() {
   ];
 
   return (
-    <section id="projects" className="py-20 relative">
+    <section id="projects" className="py-20 relative bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+        <div className="text-center mb-16 animate-fade-in-up">
           <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-blue-primary/10 text-blue-primary text-sm font-medium border border-blue-primary/20 mb-4">
             <Layers size={14} />
-            <span>Real World Work</span>
+            <span>Portfolio</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+          <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4 tracking-tight">
             Featured <span className="gradient-text">Projects</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            From B2B SaaS architectures to interactive dashboards.
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            A selection of my best work, focusing on scalable architectures, real-time data sync, and solving concrete business problems.
           </p>
         </div>
 
@@ -86,7 +86,7 @@ export default function Projects() {
           {projects.map((project, index) => (
             <Card
               key={index}
-              className={`glass-card ${project.color} border-t-4 hover:border-t-4 transition-all duration-300 hover:-translate-y-2 h-full flex flex-col`}
+              className={`glass-card ${project.color} border-t-4 transition-all duration-500 hover:-translate-y-2 h-full flex flex-col shadow-lg hover:shadow-2xl`}
             >
               <CardHeader>
                 <CardTitle className="text-2xl font-bold text-foreground mb-2">
@@ -124,7 +124,7 @@ export default function Projects() {
                   {project.liveLink && (
                     <Button
                       asChild
-                      className="flex-1 bg-secondary hover:bg-purple-600 hover:text-white border border-border text-foreground transition-all"
+                      className="flex-1 bg-secondary hover:bg-purple-600 hover:text-white dark:hover:text-white border border-border text-foreground transition-all"
                     >
                       <a
                         href={project.liveLink}

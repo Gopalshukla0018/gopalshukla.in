@@ -13,8 +13,8 @@ export default function DashboardHome() {
         const headers = { Authorization: `Bearer ${token}` };
         
         const [chatRes, blogRes] = await Promise.all([
-          fetch("http://localhost:5000/api/admin/chats", { headers }),
-          fetch("http://localhost:5000/api/admin/blogs", { headers })
+          fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000/api'}/admin/chats`, { headers }),
+          fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000/api'}/admin/blogs`, { headers })
         ]);
 
         if (chatRes.ok && blogRes.ok) {

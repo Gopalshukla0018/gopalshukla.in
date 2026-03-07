@@ -44,9 +44,8 @@ export default function Navigation() {
 
   return (
     <nav
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        scrolled ? "navbar-blur" : "bg-transparent"
-      }`}
+      className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? "navbar-blur" : "bg-transparent"
+        }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
@@ -70,8 +69,8 @@ export default function Navigation() {
               ))}
 
               <Link
-                to="/blog"
-                className="flex items-center gap-2 px-4 py-2 bg-primary/10 text-primary hover:bg-primary hover:text-white rounded-full transition-all duration-300 font-bold text-sm border border-primary/20 cursor-pointer"
+                to="/blogs"
+                className="flex items-center gap-2 px-4 py-2 bg-primary/10 text-primary hover:bg-primary hover:text-white dark:hover:text-white rounded-full transition-all duration-300 font-bold text-sm border border-primary/20 cursor-pointer"
               >
                 <LayoutGrid size={16} />
                 <span className="hidden lg:inline">Blogs</span>
@@ -91,7 +90,7 @@ export default function Navigation() {
 
           {/* Mobile menu button */}
           <div className="md:hidden flex items-center space-x-2">
-            <Link to="/blog">
+            <Link to="/blogs">
               <span className="flex items-center justify-center text-primary w-9 h-9">
                 <LayoutGrid size={20} />
               </span>
@@ -130,7 +129,7 @@ export default function Navigation() {
               ))}
 
               <Link
-                to="/blog"
+                to="/blogs"
                 onClick={() => setIsOpen(false)}
                 className="flex items-center gap-2 w-full text-left px-3 py-2 text-primary font-bold hover:bg-primary/10 transition-colors duration-300 cursor-pointer"
               >

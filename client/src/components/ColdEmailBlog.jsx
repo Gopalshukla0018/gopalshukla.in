@@ -55,6 +55,12 @@ const ColdEmailBlog = ({ data, liked, likesCount, handleLike }) => {
           <span>•</span>
           <span>Updated {updatedAt}</span>
         </div>
+        
+        {data.coverImageUrl && (
+          <div className="relative w-full h-[300px] md:h-[450px] mb-12 rounded-2xl overflow-hidden shadow-2xl border border-border">
+            <img src={data.coverImageUrl} alt={detailTitle} className="w-full h-full object-cover" />
+          </div>
+        )}
       </div>
 
       {/* Main Content */}
@@ -134,7 +140,7 @@ const ColdEmailBlog = ({ data, liked, likesCount, handleLike }) => {
         </section>
 
         {/* The Rule */}
-        <div className="bg-yellow-500/10 text-yellow-600 dark:text-yellow-400 p-6 rounded-xl border border-yellow-500/20 flex gap-4 items-start">
+        <div className="bg-yellow-500/10 text-yellow-800 dark:text-yellow-400 p-6 rounded-xl border border-yellow-500/20 flex gap-4 items-start">
           <AlertTriangle className="shrink-0 mt-1" />
           <div>
             <h3 className="font-bold text-lg mb-2">
@@ -322,7 +328,7 @@ const ColdEmailBlog = ({ data, liked, likesCount, handleLike }) => {
                 
                 {/* Button container */}
                 <div className="relative flex items-center gap-3 bg-card border border-red-500/30 text-card-foreground px-8 py-4 rounded-2xl shadow-2xl transition-all duration-300 group-hover:-translate-y-1">
-                  <div className="bg-red-600 text-white p-2.5 rounded-full flex items-center justify-center">
+                  <div className="bg-red-600 text-white dark:text-white p-2.5 rounded-full flex items-center justify-center">
                     <Youtube size={26} className="fill-white" />
                   </div>
                   <div className="flex flex-col text-left">

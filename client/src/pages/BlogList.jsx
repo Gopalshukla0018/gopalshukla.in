@@ -19,7 +19,7 @@ const BlogList = () => {
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const res = await fetch("http://localhost:5000/api/blogs");
+        const res = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000/api'}/blogs`);
         if (!res.ok) throw new Error("Failed to fetch blogs");
         const dbBlogs = await res.json();
 
@@ -104,7 +104,7 @@ const BlogList = () => {
             {blogs.map((blog) => (
               <Link
                 key={blog.id}
-                to={blog.type === "coming-soon" ? "#" : `/blog/${blog.slug}`}
+                to={blog.type === "coming-soon" ? "#" : `/blogs/${blog.slug}`}
                 className="group block h-full"
               >
                 <Card className="h-full overflow-hidden border-border hover:border-primary/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 bg-card">

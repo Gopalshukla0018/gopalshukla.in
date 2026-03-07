@@ -51,8 +51,8 @@ export default function Resources() {
                 <div className="flex justify-between items-start">
                   <div>
                     {item.isNew && (
-                      <span className="inline-block px-2 py-1 bg-gradient-to-r from-red-500 to-orange-500 text-white text-[10px] font-bold rounded-full mb-2 shadow-lg shadow-orange-500/20">
-                        NEW DROP
+                      <span className="inline-block px-2 py-1 bg-gradient-to-r from-red-500 to-orange-500 text-white dark:text-white text-[10px] font-bold rounded-full mb-2 shadow-lg shadow-orange-500/20">
+                        Top ChoiceDROP
                       </span>
                     )}
                     <CardTitle className="text-2xl font-bold text-foreground group-hover:text-purple-primary transition-colors">

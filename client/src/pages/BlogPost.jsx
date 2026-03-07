@@ -28,7 +28,7 @@ const BlogPost = () => {
         if (staticBlog) {
           // Peek into the DB to check if this static blog was already liked gloabally by anyone!
           try {
-            const staticRes = await fetch(`http://localhost:5000/api/blogs/${slug}`);
+            const staticRes = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000/api'}/blogs/${slug}`);
             if (staticRes.ok) {
               const liveStatic = await staticRes.json();
               if (liveStatic && liveStatic.likes !== undefined) {
@@ -53,7 +53,7 @@ const BlogPost = () => {
         }
 
         // Fetch from API
-        const res = await fetch(`http://localhost:5000/api/blogs/${slug}`);
+        const res = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000/api'}/blogs/${slug}`);
         if (!res.ok) {
           throw new Error("Not found");
         }
@@ -72,7 +72,8 @@ const BlogPost = () => {
           content: { htmlBody: dbBlog.content },
           hasFreebie: dbBlog.hasFreebie,
           resourceName: dbBlog.resourceName,
-          resourceLink: dbBlog.resourceLink
+          resourceLink: dbBlog.resourceLink,
+          coverImageUrl: dbBlog.coverImageUrl || dbBlog.coverImage || null
         });
         
         setLikesCount(dbBlog.likes !== undefined ? dbBlog.likes : 15);
@@ -118,7 +119,7 @@ const BlogPost = () => {
 
     try {
       const targetIdOrSlug = blogData.id && String(blogData.id).length > 5 ? blogData.id : blogData.slug;
-      await fetch(`http://localhost:5000/api/blogs/${targetIdOrSlug}/like`, {
+      await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000/api'}/blogs/${targetIdOrSlug}/like`, {
         method: 'PATCH',
       });
       toast({ title: "Thanks for the love! ❤️", description: "You liked this article." });
@@ -140,7 +141,7 @@ const BlogPost = () => {
       if (!leadEmail) return;
       setDownloading(true);
       try {
-        const res = await fetch("http://localhost:5000/api/subscribers/download-resource", {
+        const res = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000/api'}/subscribers/download-resource`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ email: leadEmail, resourceName: blogData.resourceName, resourceLink: blogData.resourceLink })
@@ -174,6 +175,12 @@ const BlogPost = () => {
             <span>{blogData.readTime}</span>
           </div>
           
+          {blogData.coverImageUrl && (
+            <div className="relative w-full h-[300px] md:h-[450px] mb-12 rounded-2xl overflow-hidden shadow-2xl border border-border">
+              <img src={blogData.coverImageUrl} alt={blogData.title} className="w-full h-full object-cover" />
+            </div>
+          )}
+          
           <div 
             className="prose dark:prose-invert prose-lg max-w-none text-foreground leading-relaxed mb-16"
             dangerouslySetInnerHTML={{ __html: blogData.content.htmlBody }}
@@ -199,7 +206,7 @@ const BlogPost = () => {
                     onChange={(e) => setLeadEmail(e.target.value)}
                     className="flex-1 px-4 py-2 border border-border bg-background rounded-md outline-none focus:ring-2 focus:ring-primary"
                   />
-                  <Button type="submit" disabled={downloading} className="bg-primary hover:bg-primary/90 text-white font-semibold">
+                  <Button type="submit" disabled={downloading} className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold">
                     {downloading ? <Loader2 className="animate-spin mr-2" size={18} /> : <Download className="mr-2" size={18} />}
                     Send it to me
                   </Button>

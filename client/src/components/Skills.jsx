@@ -88,7 +88,7 @@ export default function Skills() {
                   <div
                     className={`w-16 h-16 bg-gradient-to-r ${category.color} rounded-full flex items-center justify-center mx-auto mb-4`}
                   >
-                    <category.icon className="text-2xl text-white" size={24} />
+                    <category.icon className="text-2xl text-white dark:text-white" size={24} />
                   </div>
                   <h3 className="text-xl font-bold text-foreground">
                     {category.title}

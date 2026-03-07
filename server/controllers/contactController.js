@@ -5,19 +5,19 @@ import { contactAutoReply } from '../templates/contactTemplate.js';
 
 export const sendMessage = async (req, res) => {
   try {
-   
+
     const { name, email, subject, message, chatHistory } = req.body;
 
     if (!name || !email) {
       return res.status(400).json({ success: false, error: 'Please fill all fields' });
     }
 
-    
+
     let formattedTranscript = `<p>${message}</p>`; // Default fallback
-    
+
     if (chatHistory && Array.isArray(chatHistory) && chatHistory.length > 0) {
       formattedTranscript = chatHistory.map(msg => {
-        const role = msg.role === 'bot' ? '🤖 <b>AI Assistant</b>' : '👤 <b>User</b>';
+        const role = msg.role === 'bot' ? '🤖 <b> Assistant</b>' : '👤 <b>User</b>';
         const color = msg.role === 'bot' ? '#e3f2fd' : '#f5f5f5';
         return `
           <div style="margin-bottom: 10px; padding: 10px; background-color: ${color}; border-radius: 8px; border-left: 4px solid ${msg.role === 'bot' ? '#2196F3' : '#4CAF50'};">
@@ -31,8 +31,9 @@ export const sendMessage = async (req, res) => {
     const newMessage = await Message.create({ name, email, subject, message });
 
     //  Admin Email
+    const receivingEmail = process.env.OTP_DELIVERY_EMAIL;
     await sendEmail({
-      to: 'hello@gopalshukla.in',
+      to: receivingEmail,
       subject: `🔥 New Chat Lead: ${name}`,
       text: `Name: ${name}\nEmail: ${email}\n\nLast Message: ${message}`,
       html: `
@@ -54,12 +55,12 @@ export const sendMessage = async (req, res) => {
     // Save Chat Conversation for Admin Dashboard
     if (chatHistory && Array.isArray(chatHistory) && chatHistory.length > 0) {
       await ChatConversation.create({
-        sessionId: email, 
+        sessionId: email,
         transcript: formattedTranscript
       });
     }
 
-    
+
     await sendEmail({
       to: email,
       subject: "Thanks for chatting with Gopal's AI!",

@@ -24,7 +24,7 @@ export default function BlogManagement() {
   const fetchBlogs = async () => {
     try {
       const token = localStorage.getItem("adminToken");
-      const res = await fetch("http://localhost:5000/api/admin/blogs", {
+      const res = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000/api'}/admin/blogs`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       if (res.ok) {
@@ -66,7 +66,7 @@ export default function BlogManagement() {
     if (!window.confirm("Are you sure you want to delete this blog?")) return;
     try {
       const token = localStorage.getItem("adminToken");
-      const res = await fetch(`http://localhost:5000/api/admin/blogs/${id}`, {
+      const res = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000/api'}/admin/blogs/${id}`, {
         method: "DELETE",
         headers: { Authorization: `Bearer ${token}` }
       });
@@ -83,7 +83,7 @@ export default function BlogManagement() {
     const newStatus = blog.status === "Published" ? "Draft" : "Published";
     try {
       const token = localStorage.getItem("adminToken");
-      const res = await fetch(`http://localhost:5000/api/admin/blogs/${blog._id}`, {
+      const res = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000/api'}/admin/blogs/${blog._id}`, {
         method: "PUT",
         headers: { 
           "Content-Type": "application/json",
@@ -107,8 +107,8 @@ export default function BlogManagement() {
       const token = localStorage.getItem("adminToken");
       const method = currentBlog ? "PUT" : "POST";
       const url = currentBlog 
-        ? `http://localhost:5000/api/admin/blogs/${currentBlog._id}` 
-        : "http://localhost:5000/api/admin/blogs";
+        ? `${import.meta.env.VITE_API_URL || 'http://localhost:5000/api'}/admin/blogs/${currentBlog._id}` 
+        : `${import.meta.env.VITE_API_URL || 'http://localhost:5000/api'}/admin/blogs`;
 
       const res = await fetch(url, {
         method,
@@ -210,8 +210,8 @@ export default function BlogManagement() {
               />
             </div>
             <div className="flex justify-end pt-4">
-              <button type="submit" className="px-6 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded font-medium">
-                Save Blog
+              <button type="submit" className="px-6 py-2 bg-purple-600 hover:bg-purple-700 text-white dark:text-white rounded font-medium">
+                Add Blog
               </button>
             </div>
           </form>
@@ -227,8 +227,8 @@ export default function BlogManagement() {
           <h1 className="text-3xl font-bold">Blog Management</h1>
           <p className="text-muted-foreground text-sm mt-1">Manage your custom HTML blogs.</p>
         </div>
-        <button onClick={handleOpenNew} className="flex items-center gap-2 bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors">
-          <Plus size={16} /> Add Blog
+        <button onClick={handleOpenNew} className="flex items-center gap-2 bg-purple-600 hover:bg-purple-700 text-white dark:text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors">
+          <Plus size={18} /> New Blog
         </button>
       </div>
 

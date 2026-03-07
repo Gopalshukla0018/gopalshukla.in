@@ -19,7 +19,7 @@ export default function AudienceManagement() {
     try {
       setLoading(true);
       const token = localStorage.getItem("adminToken");
-      const res = await fetch("http://localhost:5000/api/subscribers", {
+      const res = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000/api'}/subscribers`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       if (res.ok) {
@@ -49,7 +49,7 @@ export default function AudienceManagement() {
     try {
       setSending(true);
       const token = localStorage.getItem("adminToken");
-      const res = await fetch("http://localhost:5000/api/subscribers/broadcast", {
+      const res = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000/api'}/subscribers/broadcast`, {
         method: "POST",
         headers: { 
           "Content-Type": "application/json",
@@ -81,8 +81,8 @@ export default function AudienceManagement() {
           <p className="text-muted-foreground text-sm mt-1">Manage subscribers who downloaded resources.</p>
         </div>
         <button 
-          onClick={() => setDialogOpen(true)} 
-          className="flex items-center gap-2 bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors"
+          onClick={() => setDialogOpen(true)}
+          className="flex items-center gap-2 bg-purple-600 hover:bg-purple-700 text-white dark:text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors"
         >
           <Mail size={16} /> Send Broadcast
         </button>
@@ -126,8 +126,8 @@ export default function AudienceManagement() {
                 </button>
                 <button 
                   type="submit" 
-                  disabled={sending || subscribers.length === 0}
-                  className="flex items-center gap-2 px-6 py-2 bg-purple-600 hover:bg-purple-700 disabled:opacity-50 text-white rounded font-medium transition-colors"
+                  className="flex items-center gap-2 px-6 py-2 bg-purple-600 hover:bg-purple-700 disabled:opacity-50 text-white dark:text-white rounded font-medium transition-colors"
+                  disabled={subscribers.length === 0 || !broadcastData.subject || !broadcastData.htmlMessage || sending}
                 >
                   {sending ? <Loader2 size={16} className="animate-spin" /> : <Send size={16} />} 
                   {sending ? 'Sending...' : 'Send Now'}

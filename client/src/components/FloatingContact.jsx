@@ -8,7 +8,7 @@ const FloatingContact = () => {
   const [messages, setMessages] = useState([
     {
       role: "bot",
-      text: "Hello! 👋 I'm Gopal's AI Assistant.\n\nMay I know your name?",
+      text: "Hello! 👋 I'm Gopal's Assistant.\n\nMay I know your name?",
     },
   ]);
   const [step, setStep] = useState(0);
@@ -82,19 +82,19 @@ const FloatingContact = () => {
       } else if (step === 2) {
         // Project Type from options
         setLeadData((prev) => ({ ...prev, subject: currentInput }));
-        
+
         if (currentInput === "Other Question") {
-           replyText = "Sure, please type your message below.";
-           nextStep = 3; 
+          replyText = "Sure, please type your message below.";
+          nextStep = 3;
         } else {
-           // Skip message and auto submit
-           replyText = `Understood. Submitting your inquiry for "${currentInput}"...`;
-           nextStep = 4;
-           submitData(currentInput, currentInput, [
-              ...messages,
-              { role: "user", text: currentInput },
-              { role: "bot", text: replyText }
-           ]);
+          // Skip message and auto submit
+          replyText = `Understood. Submitting your inquiry for "${currentInput}"...`;
+          nextStep = 4;
+          submitData(currentInput, currentInput, [
+            ...messages,
+            { role: "user", text: currentInput },
+            { role: "bot", text: replyText }
+          ]);
         }
       } else if (step === 3) {
         // Custom message Description & Submit
@@ -105,10 +105,10 @@ const FloatingContact = () => {
           replyText = "Submitting your message...";
           nextStep = 4;
           submitData(leadData.subject, currentInput, [
-              ...messages,
-              { role: "user", text: currentInput },
-              { role: "bot", text: replyText }
-           ]);
+            ...messages,
+            { role: "user", text: currentInput },
+            { role: "bot", text: replyText }
+          ]);
         }
       }
 
@@ -125,43 +125,43 @@ const FloatingContact = () => {
 
     }, thinkingTime);
   };
-  
-  const submitData = async (subject, message, fullChatHistory) => {
-      setIsTyping(true);
-      try {
-        const response = await fetch("/api/contact", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            ...leadData,
-            subject: subject,
-            message: message,
-            chatHistory: fullChatHistory,
-          }),
-        });
 
-        if (response.ok) {
-          setMessages((prev) => [
-            ...prev,
-            { role: "bot", text: "All done! 🎉 Your message is sent. Gopal will reply shortly via email." }
-          ]);
-          setStep(5);
-        } else {
-          throw new Error("Failed to send");
-        }
-      } catch (e) {
-        console.error(e);
+  const submitData = async (subject, message, fullChatHistory) => {
+    setIsTyping(true);
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...leadData,
+          subject: subject,
+          message: message,
+          chatHistory: fullChatHistory,
+        }),
+      });
+
+      if (response.ok) {
         setMessages((prev) => [
-            ...prev,
-            { role: "bot", text: "⚠️ Error sending message. Please email directly: hello@gopalshukla.in" }
+          ...prev,
+          { role: "bot", text: "All done! 🎉 Your message is sent. Gopal will reply shortly via email." }
         ]);
         setStep(5);
-      } finally {
-        setIsTyping(false);
-        setTimeout(() => {
-          scrollRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest" });
-        }, 100);
+      } else {
+        throw new Error("Failed to send");
       }
+    } catch (e) {
+      console.error(e);
+      setMessages((prev) => [
+        ...prev,
+        { role: "bot", text: "⚠️ Error sending message. Please email directly: hello@gopalshukla.in" }
+      ]);
+      setStep(5);
+    } finally {
+      setIsTyping(false);
+      setTimeout(() => {
+        scrollRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      }, 100);
+    }
   };
 
   const handleKeyDown = (e) => {
@@ -170,7 +170,7 @@ const FloatingContact = () => {
       handleSend();
     }
   };
-  
+
   // HELPER: Render Text with Clickable Links ---
   const renderMessageWithLinks = (text) => {
     const urlRegex = /(https?:\/\/[^\s]+)/g;
@@ -206,7 +206,7 @@ const FloatingContact = () => {
   return (
     <>
       <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end">
-        
+
         <AnimatePresence>
           {isOpen && (
             <motion.div
@@ -221,7 +221,7 @@ const FloatingContact = () => {
               <div className="bg-gradient-to-r from-cyan-600 to-blue-700 p-3 flex items-center justify-between shadow-lg z-10 shrink-0">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center border border-white/20 relative">
-                    <BrainCircuit className="text-white" size={20} />
+                    <BrainCircuit className="text-white dark:text-white" size={20} />
                     <div className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-green-500 border-2 border-cyan-600 rounded-full"></div>
                   </div>
                   <div>
@@ -234,7 +234,7 @@ const FloatingContact = () => {
                     </p>
                   </div>
                 </div>
-                <button 
+                <button
                   onClick={() => setIsOpen(false)}
                   className="text-white/80 hover:text-white transition-colors p-1"
                 >
@@ -261,11 +261,10 @@ const FloatingContact = () => {
                     )}
                     <div
                       className={`max-w-[85%] p-3 rounded-2xl text-[13px] leading-relaxed shadow-sm whitespace-pre-line border
-                      ${
-                        m.role === "user"
+                      ${m.role === "user"
                           ? "bg-blue-600 text-white border-blue-600 rounded-tr-none"
                           : "bg-white text-gray-800 border-gray-200 dark:bg-[#1a1a1a] dark:text-gray-100 dark:border-white/10 rounded-tl-none"
-                      }`}
+                        }`}
                     >
                       {renderMessageWithLinks(m.text)}
 
@@ -346,7 +345,7 @@ const FloatingContact = () => {
                 </div>
               ) : (
                 <div className="p-4 text-center border-t shrink-0 bg-gray-50 border-gray-200 dark:bg-[#0a0a0a] dark:border-white/10">
-                   <p className="text-xs text-muted-foreground mb-2">Thank you! Your inquiry has been submitted.</p>
+                  <p className="text-xs text-muted-foreground mb-2">Thank you! Your inquiry has been submitted.</p>
                 </div>
               )}
             </motion.div>
@@ -358,7 +357,7 @@ const FloatingContact = () => {
           className={`h-14 w-14 rounded-full shadow-2xl shadow-primary/40 hover:scale-110 transition-transform duration-300 ${isOpen ? 'mt-4' : ''}`}
           size="icon"
         >
-          {isOpen ? <X className="h-6 w-6 text-white" /> : <MessageCircle className="h-7 w-7 text-white" />}
+          {isOpen ? <X className="h-6 w-6 text-white dark:text-white" /> : <MessageCircle className="h-7 w-7 text-white dark:text-white" />}
           <span className="sr-only">Contact Me</span>
           {!isOpen && <span className="absolute top-0 right-0 h-4 w-4 rounded-full bg-red-500 border-2 border-background animate-pulse"></span>}
         </Button>

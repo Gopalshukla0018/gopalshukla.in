@@ -42,9 +42,9 @@ function MainLayout() {
       <div className={!isAdminRoute ? "min-h-screen pt-16" : ""}>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/blog" element={<BlogList />} />
-          <Route path="/blog/:slug" element={<BlogPost />} />
-          
+          <Route path="/blogs" element={<BlogList />} />
+          <Route path="/blogs/:slug" element={<BlogPost />} />
+
           {/* Admin Routes */}
           <Route path="/gopaldashboardportfolio/login" element={<AdminLogin />} />
           <Route path="/gopaldashboardportfolio/dashboard" element={<DashboardHome />} />

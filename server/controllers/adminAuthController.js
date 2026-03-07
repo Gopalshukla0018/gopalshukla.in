@@ -3,8 +3,8 @@ import sendEmail from '../utils/sendEmail.js';
 import jwt from 'jsonwebtoken';
 import crypto from 'crypto';
 
-const ADMIN_EMAIL = 'hello@gopalshukla.com';
-const OTP_DELIVERY_EMAIL = 'hello@gopalshukla.in'; // Same as chatbot notifications - confirmed working
+const ADMIN_EMAIL = process.env.ADMIN_EMAIL;
+const OTP_DELIVERY_EMAIL = process.env.OTP_DELIVERY_EMAIL;
 
 export const requestOTP = async (req, res) => {
   try {

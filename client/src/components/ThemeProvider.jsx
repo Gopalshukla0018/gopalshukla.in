@@ -30,16 +30,6 @@ export function ThemeProvider({
     localStorage.setItem("theme", theme);
   }, [theme]);
 
-  // Set initial theme on mount
-  useEffect(() => {
-    const root = window.document.documentElement;
-    const body = window.document.body;
-    
-    // Ensure dark mode is applied initially
-    root.classList.add("dark");
-    body.classList.add("dark");
-  }, []);
-
   const toggleTheme = () => {
     setTheme(theme === "dark" ? "light" : "dark");
   };

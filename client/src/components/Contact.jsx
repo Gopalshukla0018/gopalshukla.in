@@ -1,177 +1,70 @@
-import { useState } from "react";
-
-import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import {
-  Mail,
-  Phone,
-  MapPin,
-  Download,
-  Github,
-  Linkedin,
-  Youtube,
-  Twitter,
-} from "lucide-react";
-import ChatBotContact from "./ChatBotContact";
+import { Mail, ArrowRight, PlayCircle, Briefcase } from "lucide-react";
 
 export default function Contact() {
-  const contactInfo = [
-    {
-      icon: Mail,
-      label: "Email",
-      value: "hello@gopalshukla.in",
-      href: "mailto:hello@gopalshukla.in",
-      color: "text-purple-primary",
-    },
-    {
-      icon: Phone,
-      label: "Phone",
-      value: "+91 9696658804",
-      href: "tel:+919696658804",
-      color: "text-blue-primary",
-    },
-    {
-      icon: MapPin,
-      label: "Location",
-      value: "Farrukhabad, India",
-      href: null,
-      color: "text-accent-emerald",
-    },
-  ];
-
-  const socialLinks = [
-    {
-      icon: Github,
-      href: "https://github.com/Gopalshukla0018",
-      color: "hover:text-purple-primary",
-    },
-    {
-      icon: Linkedin,
-      href: "https://linkedin.com/in/gopalshukla0018",
-      color: "hover:text-blue-primary",
-    },
-    {
-      icon: Youtube,
-      href: "https://youtube.com/@gopalshukla0018",
-      color: "hover:text-red-500",
-    },
-    { icon: Twitter, href: "#", color: "hover:text-blue-400" },
-  ];
-
   return (
-    <section id="contact" className="py-20 relative z-10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold gradient-text mb-4">
-            Let's Connect
-          </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Ready to bring your ideas to life? Use the AI Assistant to start a
-            project.
-          </p>
-        </div>
+    <section id="contact" className="py-24 relative z-10 overflow-hidden">
+      {/* Background Decorative Elements */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-3xl aspect-[2/1] bg-gradient-to-r from-purple-primary/20 via-blue-primary/10 to-emerald-500/20 rounded-full blur-[100px] pointer-events-none -z-10"></div>
+      
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="glass-card rounded-3xl p-8 md:p-16 border border-border/50 shadow-2xl relative overflow-hidden group">
+          
+          {/* Subtle inner glow */}
+          <div className="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
-          {/* LEFT COLUMN: Contact Info & Resume */}
-          <div className="space-y-8">
-            <Card className="glass-card border-0">
-              <CardContent className="p-8">
-                <h3 className="text-2xl font-bold text-purple-primary mb-6">
-                  Get in Touch
-                </h3>
-                <div className="space-y-6">
-                  {contactInfo.map((info, index) => (
-                    <ContactInfoItem key={index} {...info} />
-                  ))}
+          <div className="animate-fade-in-up relative z-10">
+            <h2 className="text-4xl md:text-6xl font-black text-foreground mb-6 tracking-tight leading-tight">
+              Ready to <span className="gradient-text">Level Up?</span>
+            </h2>
+            
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed">
+              Whether you need mentorship to kickstart your tech career, or a developer to build your next big idea, I'm here to help.
+            </p>
+
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
+              <Button
+                asChild
+                className="bg-foreground text-background hover:bg-foreground/90 px-8 py-6 rounded-xl font-bold text-lg transition-all duration-300 transform hover:-translate-y-1 shadow-xl hover:shadow-2xl w-full sm:w-auto flex items-center justify-center gap-2 group/btn relative overflow-hidden"
+              >
+                <a href="mailto:hello@gopalshukla.in">
+                  <span className="relative z-10 flex items-center">
+                    Work With Me <ArrowRight size={20} className="ml-2 group-hover/btn:translate-x-1 transition-transform" />
+                  </span>
+                </a>
+              </Button>
+              
+              <Button
+                variant="outline"
+                asChild
+                className="glass-card px-8 py-6 rounded-xl font-bold text-lg hover:bg-secondary/80 transition-all duration-300 transform hover:-translate-y-1 border-border w-full sm:w-auto flex items-center justify-center gap-2 shadow-sm hover:shadow-md"
+              >
+                <a href="https://youtube.com/@gopalshukla0018" target="_blank" rel="noopener noreferrer">
+                  Follow My Content <PlayCircle size={20} className="ml-2 text-red-500" />
+                </a>
+              </Button>
+
+            </div>
+
+            <div className="mt-12 pt-8 border-t border-border/50 flex flex-col sm:flex-row items-center justify-center gap-4 text-sm text-muted-foreground font-medium">
+              <a href="mailto:hello@gopalshukla.in" className="flex items-center gap-2 hover:text-foreground transition-colors group/link">
+                <div className="p-2 rounded-full bg-secondary group-hover/link:bg-purple-primary/10 transition-colors">
+                  <Mail size={16} className="group-hover/link:text-purple-primary transition-colors" />
                 </div>
-                <div className="mt-8 pt-8 border-t border-border">
-                  <p className="text-muted-foreground mb-4">
-                    Follow me on social media
-                  </p>
-                  <div className="flex space-x-4">
-                    {socialLinks.map((link, index) => (
-                      <SocialLink key={index} {...link} />
-                    ))}
-                  </div>
+                hello@gopalshukla.in
+              </a>
+              <span className="hidden sm:block text-border">•</span>
+              <a href="https://linkedin.com/in/gopalshukla0018" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-foreground transition-colors group/link">
+                <div className="p-2 rounded-full bg-secondary group-hover/link:bg-blue-primary/10 transition-colors">
+                  <Briefcase size={16} className="group-hover/link:text-blue-primary transition-colors" />
                 </div>
-              </CardContent>
-            </Card>
+                Connect on LinkedIn
+              </a>
+            </div>
 
-            <Card className="glass-card border-0 text-center">
-              <CardContent className="p-8">
-                <h3 className="text-xl font-bold text-accent-amber mb-4">
-                  Download Resume
-                </h3>
-                <p className="text-muted-foreground mb-6">
-                  Get a detailed overview of my skills and experience
-                </p>
-                <Button
-                  className="bg-gradient-to-r from-accent-amber to-orange-500 hover:from-amber-600 hover:to-orange-600 px-6 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105"
-                  asChild
-                >
-                  <a
-                    href="https://drive.google.com/file/d/1CgPjbmIZyyFllFAt56V4an8lj7R4Mqqk/view?usp=sharing"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Download className="mr-3" size={16} />
-                    View CV
-                  </a>
-                </Button>
-              </CardContent>
-            </Card>
-          </div>
-
-          {/* RIGHT COLUMN: AI Chatbot (Replaced Form) */}
-          <div className="w-full">
-            <ChatBotContact />
           </div>
         </div>
       </div>
     </section>
-  );
-}
-
-// Helper Components 
-function ContactInfoItem({ icon: Icon, label, value, href, color }) {
-  const content = (
-    <div className="flex items-center space-x-4">
-      <div
-        className={`w-12 h-12 ${color.replace(
-          "text-",
-          "bg-",
-        )} bg-opacity-20 rounded-full flex items-center justify-center`}
-      >
-        <Icon className={color} size={20} />
-      </div>
-      <div>
-        <p className="text-muted-foreground">{label}</p>
-        <p
-          className={`text-foreground ${
-            href
-              ? "hover:" +
-                color.replace("text-", "text-") +
-                " transition-colors duration-300"
-              : ""
-          }`}
-        >
-          {value}
-        </p>
-      </div>
-    </div>
-  );
-  return href ? <a href={href}>{content}</a> : content;
-}
-
-function SocialLink({ icon: Icon, href, color }) {
-  return (
-    <Button variant="ghost" size="icon" asChild>
-      <a
-        href={href}
-        className={`glass-card rounded-full transition-all duration-300 transform hover:scale-110 ${color}`}
-      >
-        <Icon size={20} />
-      </a>
-    </Button>
   );
 }
