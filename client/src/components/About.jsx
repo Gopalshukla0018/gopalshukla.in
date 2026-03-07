@@ -28,7 +28,7 @@ export default function About() {
       year: "2022 - 2025",
     },
     {
-      degree: "Class XII (Science & Math)",
+      degree: "Class XII ",
       school: "GIC Inter College, Farrukhabad",
       year: "2021",
     },
@@ -114,7 +114,7 @@ export default function About() {
                 ))}
               </div>
             </div>
-            
+
           </div>
         </div>
       </div>
