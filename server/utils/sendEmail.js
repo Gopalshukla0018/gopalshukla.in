@@ -15,12 +15,16 @@ const sendEmail = async ({ to, subject, html, text, bcc }) => {
       : nodemailer.createTransport({
           host: process.env.EMAIL_HOST,
           port: parseInt(process.env.EMAIL_PORT) || 465,
-          secure: true,
+          secure: parseInt(process.env.EMAIL_PORT) === 465, // True for 465, false for 587
           auth: {
             user: process.env.EMAIL_USER,
             pass: process.env.EMAIL_PASS,
           },
-          tls: { rejectUnauthorized: false }
+          tls: { rejectUnauthorized: false },
+          // JUGAAAD 1: Stop infinite hanging. Fail fast in 10 seconds if blocked.
+          connectionTimeout: 10000,
+          greetingTimeout: 10000,
+          socketTimeout: 10000,
         });
 
     const mailOptions = {
