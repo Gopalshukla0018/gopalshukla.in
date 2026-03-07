@@ -16,19 +16,19 @@ export default function ContentSection() {
           const dbBlogs = await res.json();
           // Filter published blogs
           const published = dbBlogs.filter(b => b.status !== 'Static');
-          
+
           // Map to match the expected format and take top 2
           const mapped = published.slice(0, 2).map(blog => ({
-             id: blog._id,
-             slug: blog.slug,
-             title: blog.title,
-             excerpt: blog.description || "Read more about this topic...",
-             date: new Date(blog.createdAt).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }),
-             category: "Writing",
-             readTime: "5 min read",
-             type: "standard-article"
+            id: blog._id,
+            slug: blog.slug,
+            title: blog.title,
+            excerpt: blog.description || "Read more about this topic...",
+            date: new Date(blog.createdAt).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }),
+            category: "Writing",
+            readTime: "5 min read",
+            type: "standard-article"
           }));
-          
+
           setLatestBlogs(mapped);
         }
       } catch (err) {
@@ -37,7 +37,7 @@ export default function ContentSection() {
         setLoading(false);
       }
     };
-    
+
     fetchLatestBlogs();
   }, []);
 
@@ -56,16 +56,16 @@ export default function ContentSection() {
             Practical advice, career guidance, and technical deep dives to help you land your first role and build real skills.
           </p>
         </div>
-        
+
         <div className="grid lg:grid-cols-12 gap-12">
           <div className="lg:col-span-7 space-y-6">
             <div className="flex justify-between items-center mb-6">
               <h3 className="text-2xl font-bold text-foreground flex items-center gap-2">
                 <PlayCircle className="text-red-500" /> YouTube Channel
               </h3>
-              <a 
-                href="https://youtube.com/@gopalshukla0018" 
-                target="_blank" 
+              <a
+                href="https://youtube.com/@gopalshukla0018"
+                target="_blank"
                 rel="noopener noreferrer"
                 className="text-sm font-medium text-red-500 hover:text-red-400 flex items-center gap-1 transition-colors"
               >
@@ -86,7 +86,7 @@ export default function ContentSection() {
                     Get weekly practical videos on BCA, web development, and tech career advice.
                   </p>
                   <Button className="bg-red-500 hover:bg-red-600 text-white dark:text-white rounded-full px-8">
-                    Watch Playlistdeos Now
+                    Watch Playlist Vdeos Now
                   </Button>
                 </CardContent>
               </Card>
@@ -145,7 +145,7 @@ export default function ContentSection() {
                       </p>
                       <div className="flex items-center justify-between text-xs text-muted-foreground pt-4 border-t border-border mt-auto">
                         <span>{blog.date}</span>
-                        <span className="flex items-center gap-1"><BookOpen size={12}/> {blog.readTime}</span>
+                        <span className="flex items-center gap-1"><BookOpen size={12} /> {blog.readTime}</span>
                       </div>
                     </CardContent>
                   </Card>

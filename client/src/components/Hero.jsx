@@ -20,9 +20,18 @@ export default function Hero() {
           {/* Main Content (Left) */}
           <div className="flex-1 space-y-8 animate-fade-in-up text-left order-2 md:order-1">
             <div className="space-y-4">
-              <h2 className="text-xl md:text-2xl font-medium text-purple-primary tracking-wide">
-                Gopal Shukla
-              </h2>
+              <div className="space-y-2">
+                <h2 className="text-xl md:text-2xl font-medium text-purple-primary tracking-wide">
+                  Gopal Shukla
+                </h2>
+                <div className="inline-flex items-center rounded-full border border-purple-primary/30 bg-purple-primary/10 px-4 py-1.5 text-sm md:text-base font-medium text-purple-primary">
+                  <span className="relative flex h-2 w-2 mr-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                  </span>
+                  Full Stack Developer (MERN) | Open to work
+                </div>
+              </div>
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-foreground tracking-tight">
                 Helping BCA Students <br className="hidden md:block" />
                 Avoid <span className="gradient-text pb-2">Career Mistakes</span> <br className="hidden md:block" />

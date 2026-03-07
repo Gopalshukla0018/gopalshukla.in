@@ -24,9 +24,11 @@ export default function Skills() {
       skills: [
         { name: "React.js", icon: SiReact, color: "text-blue-400" },
         { name: "Next.js", icon: SiNextdotjs, color: "text-foreground" },
-        { name: "TypeScript", icon: SiTypescript, color: "text-blue-500" },
+        { name: "JavaScript/TS", icon: SiTypescript, color: "text-blue-500" },
         { name: "Tailwind CSS", icon: SiTailwindcss, color: "text-cyan-400" },
         { name: "shadcn/ui", icon: null, color: "text-slate-500 dark:text-slate-300" },
+        { name: "Framer Motion", icon: null, color: "text-pink-500" },
+        { name: "HTML/CSS", icon: null, color: "text-orange-500" },
       ],
     },
     {
@@ -37,7 +39,9 @@ export default function Skills() {
         { name: "Node.js", icon: SiNodedotjs, color: "text-green-500" },
         { name: "Express.js", icon: SiExpress, color: "text-gray-600 dark:text-gray-400" },
         { name: "REST APIs", icon: null, color: "text-orange-400" },
-        { name: "JWT Auth", icon: null, color: "text-yellow-400" },
+        { name: "JWT & OAuth 2.0", icon: null, color: "text-yellow-400" },
+        { name: "Cashfree", icon: null, color: "text-purple-500" },
+        { name: "Cloudinary/Multer", icon: null, color: "text-blue-500" },
       ],
     },
     {
@@ -47,24 +51,21 @@ export default function Skills() {
       skills: [
         { name: "MongoDB", icon: SiMongodb, color: "text-green-500" },
         { name: "Mongoose", icon: null, color: "text-red-400" },
-        {
-          name: "VPS (CloudPanel)",
-          icon: SiGooglecloud,
-          color: "text-blue-400",
-        },
+        { name: "VPS (CloudPanel)", icon: SiGooglecloud, color: "text-blue-400" },
+        { name: "Vercel & Render", icon: null, color: "text-foreground" },
         { name: "UptimeRobot", icon: null, color: "text-green-400" },
-        { name: "PostgreSQL", icon: SiPostgresql, color: "text-blue-500" },
       ],
     },
     {
-      title: "Tools & DevOps",
+      title: "Tools & Integrations",
       icon: Cloud,
       color: "from-orange-500 to-red-500",
       skills: [
         { name: "Git & GitHub", icon: null, color: "text-foreground" },
         { name: "Postman", icon: SiPostman, color: "text-orange-500" },
-        { name: "Docker", icon: SiDocker, color: "text-blue-500" },
-        { name: "Google APIs", icon: null, color: "text-yellow-500" },
+        { name: "Google Sheets API", icon: null, color: "text-green-500" },
+        { name: "Firebase", icon: null, color: "text-yellow-500" },
+        { name: "Debugging & Webhooks", icon: null, color: "text-blue-400" },
       ],
     },
   ];
@@ -77,7 +78,7 @@ export default function Skills() {
             Tech Ecosystem
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            My weapon of choice for building scalable B2B products
+            My weapon of choice for building scalable B2B products & integrations
           </p>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
