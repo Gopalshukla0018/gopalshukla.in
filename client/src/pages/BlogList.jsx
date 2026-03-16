@@ -82,16 +82,16 @@ const BlogList = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background text-foreground pt-24 px-6 pb-20">
+    <div className="min-h-screen px-6 pt-24 pb-20 bg-background text-foreground">
       <div className="max-w-5xl mx-auto">
         <div className="mb-12 text-center md:text-left">
           <Badge variant="outline" className="mb-4 border-primary text-primary">
             Gopal's Library
           </Badge>
-          <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight mb-4">
+          {/* <h1 className="mb-4 text-4xl font-extrabold tracking-tight md:text-6xl">
             Wealth & <span className="text-primary">Career Strategies</span>
-          </h1>
-          <p className="text-muted-foreground text-lg max-w-2xl">
+          </h1> */}
+          <p className="max-w-2xl text-lg text-muted-foreground">
             No-nonsense guides for students and freshers to hack their career
             growth, build wealth, and master the MERN stack.
           </p>
@@ -105,12 +105,12 @@ const BlogList = () => {
               <Link
                 key={blog.id}
                 to={blog.type === "coming-soon" ? "#" : `/blogs/${blog.slug}`}
-                className="group block h-full"
+                className="block h-full group"
               >
-                <Card className="h-full overflow-hidden border-border hover:border-primary/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 bg-card">
-                  <div className="h-48 bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-900 dark:to-gray-800 group-hover:from-primary/10 group-hover:to-purple-100 dark:group-hover:from-primary/20 dark:group-hover:to-purple-900/20 transition-all duration-500 flex items-center justify-center relative overflow-hidden">
+                <Card className="h-full overflow-hidden transition-all duration-300 border-border hover:border-primary/50 hover:shadow-xl hover:-translate-y-1 bg-card">
+                  <div className="relative flex items-center justify-center h-48 overflow-hidden transition-all duration-500 bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-900 dark:to-gray-800 group-hover:from-primary/10 group-hover:to-purple-100 dark:group-hover:from-primary/20 dark:group-hover:to-purple-900/20">
                     {blog.coverImageUrl ? (
-                      <img src={blog.coverImageUrl} alt={blog.title} className="w-full h-full object-cover" />
+                      <img src={blog.coverImageUrl} alt={blog.title} className="object-cover w-full h-full" />
                     ) : (
                       <span className="text-4xl">🚀</span>
                     )}
@@ -121,7 +121,7 @@ const BlogList = () => {
                   </div>
 
                   <CardHeader>
-                    <div className="flex items-center gap-4 text-xs text-muted-foreground mb-2">
+                    <div className="flex items-center gap-4 mb-2 text-xs text-muted-foreground">
                       <span className="flex items-center gap-1">
                         <Calendar size={12} /> {blog.date}
                       </span>
@@ -129,19 +129,19 @@ const BlogList = () => {
                         <Clock size={12} /> {blog.readTime}
                       </span>
                     </div>
-                    <CardTitle className="text-xl font-bold leading-tight group-hover:text-primary transition-colors">
+                    <CardTitle className="text-xl font-bold leading-tight transition-colors group-hover:text-primary">
                       {blog.title}
                     </CardTitle>
                   </CardHeader>
 
                   <CardContent>
-                    <p className="text-muted-foreground text-sm line-clamp-2">
+                    <p className="text-sm text-muted-foreground line-clamp-2">
                       {blog.excerpt}
                     </p>
                   </CardContent>
 
-                    <CardFooter className="mt-auto border-t border-border/50 pt-4 flex justify-between items-center">
-                      <div className="text-sm font-bold text-primary flex items-center gap-2 group-hover:gap-3 transition-all">
+                    <CardFooter className="flex items-center justify-between pt-4 mt-auto border-t border-border/50">
+                      <div className="flex items-center gap-2 text-sm font-bold transition-all text-primary group-hover:gap-3">
                         Read Article <ArrowRight size={16} />
                       </div>
                       {blog.type !== "coming-soon" && (
