@@ -93,7 +93,7 @@ const BlogList = () => {
           </h1> */}
           <p className="max-w-2xl text-lg text-muted-foreground">
             No-nonsense guides for students and freshers to hack their career
-            growth, build wealth, and master the MERN stack.
+            growth
           </p>
         </div>
 
