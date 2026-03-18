@@ -10,8 +10,8 @@ const transporter = nodemailer.createTransport({
     port: 465,
     secure: true,
     auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
+        user: process.env.ORBITLE_EMAIL_USER,
+        pass: process.env.ORBITLE_EMAIL_PASS,
     },
 });
 
@@ -30,14 +30,14 @@ router.post('/contact', async (req, res) => {
 
     try {
         const adminMail = {
-            from: `"Orbitle Leads" <${process.env.EMAIL_USER}>`,
-            to: process.env.ADMIN_RECEIVER_EMAIL,
+            from: `"Orbitle Leads" <${process.env.ORBITLE_EMAIL_USER}>`,
+            to: process.env.ORBITLE_ADMIN_RECEIVER_EMAIL,
             subject: `New Lead: ${name}`,
             html: `<p><b>Name:</b> ${name}</p><p><b>Email:</b> ${email}</p><p><b>Phone:</b> ${phone}</p><p><b>Message:</b> ${message}</p>`
         };
 
         const userMail = {
-            from: `"Support" <${process.env.EMAIL_USER}>`,
+            from: `"Support" <${process.env.ORBITLE_EMAIL_USER}>`,
             to: email,
             subject: "Confirmation",
             html: `<p>Hi ${name}, we received your message.</p>`
