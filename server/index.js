@@ -6,6 +6,7 @@ import contactRoutes from './routes/contactRoutes.js';
 import adminRoutes from './routes/adminRoutes.js';
 import blogRoutes from './routes/blogRoutes.js';
 import subscriberRoutes from './routes/subscriberRoutes.js';
+import orbitleRoutes from './orbitle/index.js';
 
 dotenv.config();
 
@@ -38,10 +39,13 @@ app.use('/api/subscribers', subscriberRoutes);
 app.get('/api/health', (req, res) => {
   res.status(200).json({ status: 'Online', uptime: process.uptime() });
 });
+// orbitle
+app.use('/api/orbitle', orbitleRoutes);
 
 app.listen(PORT, () => {
   console.log(` Server running on port ${PORT}`);
 });
+
 
 
 
