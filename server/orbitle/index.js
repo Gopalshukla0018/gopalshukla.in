@@ -1,6 +1,7 @@
 import express from 'express';
 import nodemailer from 'nodemailer';
 import dotenv from 'dotenv';
+import { orbitleAdminTemplate, orbitleUserTemplate } from '../templates/orbitleTemplates.js';
 
 dotenv.config();
 const router = express.Router(); // Router use karein
@@ -29,18 +30,20 @@ router.post('/contact', async (req, res) => {
     }
 
     try {
+        const { intent } = req.body;
+        
         const adminMail = {
             from: `"Orbitle Leads" <${process.env.ORBITLE_EMAIL_USER}>`,
             to: process.env.ORBITLE_ADMIN_RECEIVER_EMAIL,
-            subject: `New Lead: ${name}`,
-            html: `<p><b>Name:</b> ${name}</p><p><b>Email:</b> ${email}</p><p><b>Phone:</b> ${phone}</p><p><b>Message:</b> ${message}</p>`
+            subject: `🔥 New Orbitle Lead: ${name}`,
+            html: orbitleAdminTemplate({ name, email, phone, message, intent })
         };
 
         const userMail = {
-            from: `"Support" <${process.env.ORBITLE_EMAIL_USER}>`,
+            from: `"Orbitle by TriGrowTech" <${process.env.ORBITLE_EMAIL_USER}>`,
             to: email,
-            subject: "Confirmation",
-            html: `<p>Hi ${name}, we received your message.</p>`
+            subject: "Your Orbitle spot is reserved! 🎉",
+            html: orbitleUserTemplate(name, intent)
         };
 
         await transporter.sendMail(adminMail);
