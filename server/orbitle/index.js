@@ -16,12 +16,12 @@ const transporter = nodemailer.createTransport({
     },
 });
 
-// Ye route ab "api.gopalshukla.in/api/orbitle/test" par chalega
+// "api.gopalshukla.in/api/orbitle/test" 
 router.get("/test", (req, res) => {
     res.status(200).json({ message: "Orbitle logic is active inside main server!" });
 });
 
-// Ye route ab "api.gopalshukla.in/api/orbitle/contact" par chalega
+// "api.gopalshukla.in/api/orbitle/contact" 
 router.post('/contact', async (req, res) => {
     const { name, email, phone, message } = req.body;
 
@@ -31,7 +31,7 @@ router.post('/contact', async (req, res) => {
 
     try {
         const { intent } = req.body;
-        
+
         const adminMail = {
             from: `"Orbitle Leads" <${process.env.ORBITLE_EMAIL_USER}>`,
             to: process.env.ORBITLE_ADMIN_RECEIVER_EMAIL,
@@ -56,4 +56,4 @@ router.post('/contact', async (req, res) => {
     }
 });
 
-export default router; // Router export karein
+export default router; 
