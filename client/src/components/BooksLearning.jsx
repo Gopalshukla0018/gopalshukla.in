@@ -12,7 +12,7 @@ export default function BooksLearning() {
     {
       title: "Build Don't Talk",
       author: "Raj Shamani",
-      status: ".Read",
+      status: "Read",
       coverImage: "https://m.media-amazon.com/images/I/41oDvNmEO3L._SY445_SX342_QL70_FMwebp_.jpg"
     },
     {
