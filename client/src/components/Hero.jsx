@@ -33,30 +33,29 @@ export default function Hero() {
                 </div>
               </div>
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-foreground tracking-tight">
-                Helping BCA Students <br className="hidden md:block" />
-                Avoid <span className="gradient-text pb-2">Career Mistakes</span> <br className="hidden md:block" />
-                and Build Real Tech Skills
+                Engineering scalable <span className="gradient-text pb-2">SaaS platforms</span> <br className="hidden md:block" />
+                and high-performance web applications
               </h1>
-              
+
               <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl leading-relaxed">
-                I share practical advice on BCA, web development, and tech careers to help students avoid mistakes and build real skills.
+                Full Stack MERN Developer delivering end-to-end solutions — from React dashboards to robust Node.js APIs and payment integrations. Currently building for 100+ active users.
               </p>
             </div>
 
             {/* Action Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
               <Button
-                onClick={() => scrollToSection("contact")}
+                onClick={() => scrollToSection("projects")}
                 className="bg-foreground text-background hover:bg-foreground/90 px-8 py-6 rounded-xl font-medium text-lg transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl w-full sm:w-auto flex items-center justify-center gap-2"
               >
-                Work With Me <ArrowRight size={20} />
+                View Projects <ArrowRight size={20} />
               </Button>
               <Button
                 variant="outline"
-                onClick={() => scrollToSection("projects")}
+                onClick={() => scrollToSection("contact")}
                 className="glass-card px-8 py-6 rounded-xl font-medium text-lg hover:bg-secondary/50 transition-all duration-300 transform hover:-translate-y-1 border-border w-full sm:w-auto"
               >
-                View My Work
+                Contact Me
               </Button>
             </div>
 
@@ -101,7 +100,7 @@ export default function Hero() {
                 className="w-full h-full object-cover rounded-[1.5rem] relative z-10"
               />
             </div>
-            
+
             {/* Minimalist floating elements */}
             <div className="absolute -top-6 -right-6 glass-card p-4 rounded-2xl shadow-xl floating-element">
               <span className="font-bold text-lg">💻 Dev</span>

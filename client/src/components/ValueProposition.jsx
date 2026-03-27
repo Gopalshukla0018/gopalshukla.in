@@ -1,6 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Lightbulb, MonitorPlay, Code2, ArrowRight } from "lucide-react";
 
+
 export default function ValueProposition() {
   const values = [
     {
@@ -39,7 +40,7 @@ export default function ValueProposition() {
           <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4 tracking-tight">
             How I Can <span className="gradient-text">Help You</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg font-normal text-muted-foreground leading-relaxed mt-2 mx-auto max-w-2xl">
             Whether you are a student looking for guidance or a business needing a robust web application.
           </p>
         </div>

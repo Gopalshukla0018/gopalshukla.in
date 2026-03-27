@@ -8,61 +8,102 @@ import {
   ShoppingCart,
   Users,
 } from "lucide-react";
+import imgLuxuryMilestone from "@/assets/projects/luxryMilestone.png";
+import imgTG from "@/assets/projects/TG.png";
+import imgGopalShukla from "@/assets/projects/gopalshukla.in.png";
+import imgSkillsMittra from "@/assets/projects/skillsmittra.png";
 
 export default function Projects() {
   const projects = [
     {
-      title: "TravelGrowIndia Marketplace",
-      description:
-        "A production-grade B2B marketplace built to automate lead distribution and agent workflows.",
+      title: "Luxury Milestone Tour & Travels",
+      description: "A high-conversion travel agency platform offering custom Kashmir and Ladakh tour packages.",
       features: [
-        "Automated & Manual Lead Assignment Engine",
-        "Agent Wallet & Purchase History with PDF Invoicing",
-        "Role-Based Access Control (RBAC) for Admins",
-        "Real-time Lead Inventory Management",
+        "Designed a performance-optimized, SEO-friendly architecture",
+        "Created an intuitive and dynamic tour package browsing system",
+        "Built responsive UI with Vite and Tailwind CSS to maximize conversions"
       ],
-      tags: ["MERN Stack", "Cashfree", "REST API", "Google Sheets Automation"],
+      tags: ["React.js", "Tailwind CSS", "Vite", "SEO"],
+      liveLink: "https://luxurymilestonetourandtravel.com/",
+      repoLink: null,
+      image: imgLuxuryMilestone,
+      color: "border-amber-500/50",
+    },
+    {
+      title: "TravelGrowIndia Marketplace",
+      description: "A live B2B SaaS platform used by 100+ active travel agents daily.",
+      features: [
+        "Built 3 role-based dashboards (Agent, Admin, SuperAdmin) across 15+ screens",
+        "Engineered 8+ RESTful APIs, cutting response time by ~40% via MongoDB indexing",
+        "Integrated Cashfree webhooks with HMAC-SHA256 verification",
+        "Automated lead ingestion via Google Sheets API, deduplicating 1,000+ leads"
+      ],
+      tags: ["React", "Express.js", "MongoDB", "Cashfree", "VPS"],
       liveLink: "https://agent.travelgrowindia.com/",
       repoLink: null,
+      image: imgTG,
       color: "border-purple-500/50",
     },
     {
-      title: "SkillsMittra EdTech Platform",
-      description:
-        "Scalable e-learning marketplace with automated student enrollment and instructor-led course management.",
+      title: "gopalshukla.in (Custom CMS)",
+      description: "Full-stack portfolio with a custom Admin CMS and automated lead routing.",
       features: [
-        "User-friendly Course Dashboard",
-        "Secure Student Authentication",
-        "Content Management System",
-        "Payment Integration with Cashfree",
-        "Responsive UI Design",
+        "Secured CMS with OTP-based JWT login via Nodemailer",
+        "Built Blog CRUD with slug generation and cover image handling",
+        "Created Audience Manager for subscriber list and broadcast emails",
+        "Automated resource downloads and chat transcript saving to MongoDB"
       ],
-      tags: [
-        "React.js",
-        "Node.js",
-        "Tailwind CSS",
-        "MongoDB",
-        "Cashfree",
-        "Redux",
+      tags: ["React", "Node.js", "MongoDB", "JWT", "Nodemailer"],
+      liveLink: "https://gopalshukla.in/",
+      repoLink: "https://github.com/Gopalshukla0018",
+      image: imgGopalShukla,
+      color: "border-emerald-500/50",
+    },
+    {
+      title: "SkillsMittra EdTech LMS",
+      description: "Scalable e-learning marketplace with automated student enrollment.",
+      features: [
+        "Multi-role platform for Instructors, Students, and Admins",
+        "Integrated Google OAuth 2.0 and JWT standard auth",
+        "Implemented Redux RTK Query caching to reduce redundant API calls",
+        "Achieved 93% Accessibility and 83% SEO scores in Lighthouse"
       ],
+      tags: ["React", "Node.js", "MongoDB", "RTK Query", "OAuth"],
       liveLink: "https://skillsmittra.gopalshukla.in/",
       repoLink: "https://github.com/Gopalshukla0018/lms",
+      image: imgSkillsMittra,
       color: "border-blue-500/50",
     },
     {
       title: "Huguen Hotel Dashboard",
-      description:
-        "Production-level inventory management dashboard for hotel operations with real-time data sync.",
+      description: "Hotel management dashboard with real-time data visualization.",
       features: [
-        "Real-time Inventory Updates",
-        "Complex Data Visualization",
-        "NestJS API Integration",
-        "TypeScript Type Safety",
+        "Built UI with Next.js + TypeScript",
+        "Eliminated repetitive code with ShadCN UI",
+        "Fixed critical async state race conditions",
+        "Integrated NestJS APIs end-to-end"
       ],
-      tags: ["Next.js", "TypeScript", "NestJS", "Recharts", "Axios"],
+      tags: ["Next.js", "TypeScript", "NestJS", "ShadCN UI"],
       liveLink: "https://www.huguen.com/",
       repoLink: null,
+      image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=600",
       color: "border-emerald-500/50",
+    },
+    {
+      title: "Build Your Next SaaS",
+      description: "Looking for a reliable MERN stack developer to build your next big idea? Let's collaborate.",
+      features: [
+        "End-to-end full stack development",
+        "Scalable architecture and secure APIs",
+        "Modern, high-conversion UI/UX",
+        "Seamless deployment and maintenance"
+      ],
+      tags: ["Available", "Freelance", "Full-Time", "Contract"],
+      liveLink: "#contact",
+      liveLinkText: "Let's Talk!",
+      repoLink: null,
+      image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=600",
+      color: "border-rose-500/50",
     },
   ];
 
@@ -72,35 +113,51 @@ export default function Projects() {
         <div className="text-center mb-16 animate-fade-in-up">
           <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-blue-primary/10 text-blue-primary text-sm font-medium border border-blue-primary/20 mb-4">
             <Layers size={14} />
-            <span>Portfolio</span>
+            <span>Recent Work</span>
           </div>
           <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4 tracking-tight">
-            Featured <span className="gradient-text">Projects</span>
+            Recent <span className="gradient-text">Work</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             A selection of my best work, focusing on scalable architectures, real-time data sync, and solving concrete business problems.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
             <Card
               key={index}
               className={`glass-card ${project.color} border-t-4 transition-all duration-500 hover:-translate-y-2 h-full flex flex-col shadow-lg hover:shadow-2xl`}
             >
-              <CardHeader>
-                <CardTitle className="text-2xl font-bold text-foreground mb-2">
-                  {project.title}
-                </CardTitle>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.tags.map((tag, i) => (
-                    <span
-                      key={i}
-                      className="text-xs font-mono bg-secondary text-secondary-foreground px-2 py-1 rounded border border-border"
-                    >
-                      {tag}
-                    </span>
-                  ))}
+              <CardHeader className="p-0">
+                <div className="w-full h-48 overflow-hidden rounded-t-xl bg-secondary/50 relative group/img">
+                  <img
+                    src={project.image}
+                    alt={`${project.title} screenshot`}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover/img:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover/img:opacity-100 transition-opacity flex items-center justify-center">
+                    {project.liveLink && (
+                      <a href={project.liveLink} target={project.liveLink.startsWith("#") ? "_self" : "_blank"} rel="noopener noreferrer" className="bg-white/10 backdrop-blur-md px-4 py-2 rounded-full text-white flex items-center gap-2 hover:bg-white/20 transition-all font-medium">
+                        <ExternalLink size={16} /> {project.liveLinkText || "View Live"}
+                      </a>
+                    )}
+                  </div>
+                </div>
+                <div className="p-6 pb-2">
+                  <CardTitle className="text-2xl font-bold text-foreground mb-2">
+                    {project.title}
+                  </CardTitle>
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {project.tags.map((tag, i) => (
+                      <span
+                        key={i}
+                        className="text-xs font-mono bg-secondary text-secondary-foreground px-2 py-1 rounded border border-border"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </CardHeader>
               <CardContent className="flex-1 flex flex-col">
@@ -128,10 +185,10 @@ export default function Projects() {
                     >
                       <a
                         href={project.liveLink}
-                        target="_blank"
+                        target={project.liveLink.startsWith("#") ? "_self" : "_blank"}
                         rel="noopener noreferrer"
                       >
-                        <ExternalLink size={16} className="mr-2" /> Live Demo
+                        <ExternalLink size={16} className="mr-2" /> {project.liveLinkText || "Live Demo"}
                       </a>
                     </Button>
                   )}

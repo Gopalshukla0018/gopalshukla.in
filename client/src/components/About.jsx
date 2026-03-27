@@ -1,23 +1,24 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Briefcase, GraduationCap, Code } from "lucide-react";
 
+
 export default function About() {
   const experiences = [
     {
-      title: "Full Stack Developer (Team Lead)",
+      title: "Full Stack Developer",
       company: "TravelGrowIndia",
       companyUrl: "https://travelgrowindia.com",
       period: "Nov 2025 - Present",
-      description: "Developing automated systems for lead distribution and managing a high-concurrency platform.",
-      tags: ["Node.js", "MongoDB", "VPS"],
+      description: "Engineered scalable B2B SaaS platform for 100+ travel agents. Built role-based dashboards, optimized 8+ REST API modules reducing response time by 40%, and integrated Cashfree webhooks. Automated lead ingestion via Google Sheets.",
+      tags: ["React", "Node.js", "MongoDB", "Cashfree", "PM2"],
     },
     {
-      title: "Frontend Developer Intern",
+      title: "Frontend Developer (Contract)",
       company: "Huguen",
       companyUrl: "https://www.huguen.com",
-      period: "Internship",
-      description: "Built a production hotel dashboard using Next.js & TypeScript.",
-      tags: ["Next.js", "TypeScript", "Tailwind"],
+      period: "Oct 2025 - Nov 2025",
+      description: "Rebuilt hotel management dashboard using Next.js & TypeScript. Eliminated repetitive code with ShadCN UI, fixed critical async state race conditions, and integrated NestJS APIs end-to-end.",
+      tags: ["Next.js", "TypeScript", "Tailwind", "ShadCN UI"],
     },
   ];
 
@@ -46,22 +47,19 @@ export default function About() {
             </div>
 
             <h2 className="text-3xl md:text-5xl font-bold text-foreground tracking-tight leading-tight">
-              Learning to code changed my life. <br />
-              <span className="text-muted-foreground">Now I help others do the same.</span>
+              Building real-world applications <br />
+              <span className="text-muted-foreground">with modern web technologies.</span>
             </h2>
 
-            <div className="prose prose-lg dark:prose-invert text-muted-foreground leading-relaxed space-y-6">
-              <p>
-                My journey started from scratch. Like many BCA students, I was confused about where to begin, which technologies to learn, and how to actually build things that work in the real world.
+            <div className="space-y-4">
+              <p className="text-lg font-normal text-muted-foreground leading-relaxed">
+                I am a Full Stack Developer with hands-on experience building and deploying real-world applications using the MERN stack.
               </p>
-              <p>
-                Through a lot of trial and error, I taught myself full-stack development. Now, as a <strong className="text-foreground font-semibold">Full Stack Developer</strong> leading a tech team, I build scalable systems that solve real business problems.
+              <p className="text-lg font-normal text-muted-foreground leading-relaxed">
+                I have worked on a live SaaS platform where I handled authentication, APIs, payments, and deployment.
               </p>
-              <p>
-                But coding is only half the picture. I saw so many students making the same career mistakes I almost made. That's why I started my <a href="https://youtube.com/@gopalshukla0018" target="_blank" rel="noopener noreferrer" className="text-purple-primary hover:text-purple-400 underline decoration-purple-500/30 underline-offset-4 font-medium transition-colors">YouTube channel</a>.
-              </p>
-              <p>
-                My mission is simple: share <strong className="text-foreground font-semibold">practical, no-BS career advice</strong> and real tech skills with college students, so they can skip the confusion and land their first tech job faster.
+              <p className="text-lg font-normal text-muted-foreground leading-relaxed">
+                I am comfortable building features end-to-end — from frontend UI to backend APIs and database.
               </p>
             </div>
           </div>

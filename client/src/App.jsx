@@ -11,6 +11,7 @@ import Footer from "./components/Footer.jsx";
 import Navigation from "./components/Navigation.jsx";
 import BlogList from "./pages/BlogList.jsx";
 import FloatingContact from "./components/FloatingContact.jsx";
+import SmoothScroll from "./components/SmoothScroll.jsx";
 import { useEffect } from "react";
 import BlogPost from "./pages/BlogPost.jsx";
 
@@ -36,7 +37,7 @@ function MainLayout() {
   const isAdminRoute = pathname.startsWith("/gopaldashboardportfolio");
 
   return (
-    <>
+    <SmoothScroll>
       <ScrollToTop />
       {!isAdminRoute && <Navigation />}
       <div className={!isAdminRoute ? "min-h-screen pt-16" : ""}>
@@ -57,7 +58,7 @@ function MainLayout() {
       </div>
       {!isAdminRoute && <Footer />}
       {!isAdminRoute && <FloatingContact />}
-    </>
+    </SmoothScroll>
   );
 }
 

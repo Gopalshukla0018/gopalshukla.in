@@ -19,7 +19,7 @@ export default function Contact() {
             </h2>
             
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed">
-              Whether you need mentorship to kickstart your tech career, or a developer to build your next big idea, I'm here to help.
+              I'm currently open to React / Full Stack opportunities and actively building production-ready applications. If you're hiring or working on something interesting, let's connect.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
