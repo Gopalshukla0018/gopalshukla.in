@@ -6,7 +6,7 @@ export default function BooksLearning() {
     {
       title: "Can't Hurt Me",
       author: "David Goggins",
-      status: "Read",
+      status: "Read-",
       coverImage: "https://m.media-amazon.com/images/I/81VpFFpZTtL._SY466_.jpg"
     },
     {
