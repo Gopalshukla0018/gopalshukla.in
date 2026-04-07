@@ -75,21 +75,6 @@ export default function Projects() {
       color: "border-blue-500/50",
     },
     {
-      title: "Huguen Hotel Dashboard",
-      description: "Hotel management dashboard with real-time data visualization.",
-      features: [
-        "Built UI with Next.js + TypeScript",
-        "Eliminated repetitive code with ShadCN UI",
-        "Fixed critical async state race conditions",
-        "Integrated NestJS APIs end-to-end"
-      ],
-      tags: ["Next.js", "TypeScript", "NestJS", "ShadCN UI"],
-      liveLink: "https://www.huguen.com/",
-      repoLink: null,
-      image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=600",
-      color: "border-emerald-500/50",
-    },
-    {
       title: "Build Your Next SaaS",
       description: "Looking for a reliable MERN stack developer to build your next big idea? Let's collaborate.",
       features: [

@@ -8,17 +8,9 @@ export default function About() {
       title: "Full Stack Developer",
       company: "TravelGrowIndia",
       companyUrl: "https://travelgrowindia.com",
-      period: "Nov 2025 - Present",
+      period: "Feb 2025 - Present",
       description: "Engineered scalable B2B SaaS platform for 100+ travel agents. Built role-based dashboards, optimized 8+ REST API modules reducing response time by 40%, and integrated Cashfree webhooks. Automated lead ingestion via Google Sheets.",
       tags: ["React", "Node.js", "MongoDB", "Cashfree", "PM2"],
-    },
-    {
-      title: "Frontend Developer (Contract)",
-      company: "Huguen",
-      companyUrl: "https://www.huguen.com",
-      period: "Oct 2025 - Nov 2025",
-      description: "Rebuilt hotel management dashboard using Next.js & TypeScript. Eliminated repetitive code with ShadCN UI, fixed critical async state race conditions, and integrated NestJS APIs end-to-end.",
-      tags: ["Next.js", "TypeScript", "Tailwind", "ShadCN UI"],
     },
   ];
 

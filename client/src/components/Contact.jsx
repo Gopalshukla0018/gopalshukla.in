@@ -6,18 +6,18 @@ export default function Contact() {
     <section id="contact" className="py-24 relative z-10 overflow-hidden">
       {/* Background Decorative Elements */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-3xl aspect-[2/1] bg-gradient-to-r from-purple-primary/20 via-blue-primary/10 to-emerald-500/20 rounded-full blur-[100px] pointer-events-none -z-10"></div>
-      
+
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="glass-card rounded-3xl p-8 md:p-16 border border-border/50 shadow-2xl relative overflow-hidden group">
-          
+
           {/* Subtle inner glow */}
           <div className="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
 
           <div className="animate-fade-in-up relative z-10">
             <h2 className="text-4xl md:text-6xl font-black text-foreground mb-6 tracking-tight leading-tight">
-              Ready to <span className="gradient-text">Level Up?</span>
+              Let's Build Something <span className="gradient-text">Exceptional.</span>
             </h2>
-            
+
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed">
               I'm currently open to React / Full Stack opportunities and actively building production-ready applications. If you're hiring or working on something interesting, let's connect.
             </p>
@@ -33,7 +33,7 @@ export default function Contact() {
                   </span>
                 </a>
               </Button>
-              
+
               <Button
                 variant="outline"
                 asChild

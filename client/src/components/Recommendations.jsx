@@ -4,14 +4,6 @@ import { motion } from "framer-motion";
 export default function Recommendations() {
   const recommendations = [
     {
-      name: "Aakash Bhardwaj",
-      role: "Founder & Engineering Lead",
-      company: "Huguen",
-      quote: "To Whom It May Concern, I am writing to recommend Mr. Gopal Shukla, who worked under my supervision as a Frontend Development Intern. During the internship, he worked primarily with Next.js for building and optimizing frontend interfaces, and handled API integrations with a NestJS backend. Gopal developed responsive, efficient, and reusable UI components, and showed good understanding of state management, routing, and asynchronous data handling. He consistently wrote clean, well-structured code, met deadlines, and adapted quickly to feedback. Overall, Gopal demonstrated solid technical skills and reliability in completing assigned development tasks.",
-      initials: "AB",
-      date: "November 13, 2025"
-    },
-    {
       name: "Raj Gupta",
       role: "Technical Lead - Cloud Security",
       company: "SecPod",
