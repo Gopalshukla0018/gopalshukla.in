@@ -5,10 +5,18 @@ import { Briefcase, GraduationCap, Code } from "lucide-react";
 export default function About() {
   const experiences = [
     {
+      title: "Software Engineer",
+      company: "Interwork Software Solutions Pvt. Ltd.",
+      companyUrl: "https://www.interworksoftware.com",
+      period: "April 2026 - Present",
+      description: "Contributing as a Software Engineer at Interwork, focusing on engineering high-performance software, scalable architectures, and robust web applications.",
+      tags: ["React", "Node.js", "System Design", "Software Engineering"],
+    },
+    {
       title: "Full Stack Developer",
       company: "TravelGrowIndia",
       companyUrl: "https://travelgrowindia.com",
-      period: "Feb 2025 - Present",
+      period: "Feb 2025 - April 2026",
       description: "Engineered scalable B2B SaaS platform for 100+ travel agents. Built role-based dashboards, optimized 8+ REST API modules reducing response time by 40%, and integrated Cashfree webhooks. Automated lead ingestion via Google Sheets.",
       tags: ["React", "Node.js", "MongoDB", "Cashfree", "PM2"],
     },
@@ -45,13 +53,13 @@ export default function About() {
 
             <div className="space-y-4">
               <p className="text-lg font-normal text-muted-foreground leading-relaxed">
-                I am a Full Stack Developer with hands-on experience building and deploying real-world applications using the MERN stack.
+                I am a Software Engineer at Interwork with a strong foundation in building and deploying scalable real-world applications.
               </p>
               <p className="text-lg font-normal text-muted-foreground leading-relaxed">
-                I have worked on a live SaaS platform where I handled authentication, APIs, payments, and deployment.
+                With professional experience in architecting live SaaS platforms, I specialize in the MERN stack, handling everything from secure authentication and complex APIs to payment gateways and cloud deployment.
               </p>
               <p className="text-lg font-normal text-muted-foreground leading-relaxed">
-                I am comfortable building features end-to-end — from frontend UI to backend APIs and database.
+                I am passionate about engineering clean, efficient code and building features end-to-end — from frontend UI to robust backend architectures.
               </p>
             </div>
           </div>

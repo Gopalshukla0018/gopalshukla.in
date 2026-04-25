@@ -83,7 +83,7 @@ export default function Projects() {
         "Modern, high-conversion UI/UX",
         "Seamless deployment and maintenance"
       ],
-      tags: ["Available", "Freelance", "Full-Time", "Contract"],
+      tags: ["Collaboration", "SaaS Development", "Consulting"],
       liveLink: "#contact",
       liveLinkText: "Let's Talk!",
       repoLink: null,
