@@ -15,11 +15,11 @@ export default function Contact() {
 
           <div className="animate-fade-in-up relative z-10">
             <h2 className="text-4xl md:text-6xl font-black text-foreground mb-6 tracking-tight leading-tight">
-              Let's Build Something <span className="gradient-text">Exceptional.</span>
+              Let's Stay <span className="gradient-text">Connected.</span>
             </h2>
 
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed">
-              I'm currently open to React / Full Stack opportunities and actively building production-ready applications. If you're hiring or working on something interesting, let's connect.
+              I'm always excited to discuss system design, modern web engineering, or open-source projects. Whether you have a question or just want to say hi, feel free to reach out.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
@@ -29,7 +29,7 @@ export default function Contact() {
               >
                 <a href="mailto:hello@gopalshukla.in">
                   <span className="relative z-10 flex items-center">
-                    Work With Me <ArrowRight size={20} className="ml-2 group-hover/btn:translate-x-1 transition-transform" />
+                    Say Hello <ArrowRight size={20} className="ml-2 group-hover/btn:translate-x-1 transition-transform" />
                   </span>
                 </a>
               </Button>

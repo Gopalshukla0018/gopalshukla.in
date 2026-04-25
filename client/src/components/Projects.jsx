@@ -75,20 +75,20 @@ export default function Projects() {
       color: "border-blue-500/50",
     },
     {
-      title: "Build Your Next SaaS",
-      description: "Looking for a reliable MERN stack developer to build your next big idea? Let's collaborate.",
+      title: "Let's Connect",
+      description: "I'm always open to discussing system design, open-source contributions, or just talking tech. Feel free to reach out for a virtual coffee chat!",
       features: [
-        "End-to-end full stack development",
-        "Scalable architecture and secure APIs",
-        "Modern, high-conversion UI/UX",
-        "Seamless deployment and maintenance"
+        "Open Source Contributions",
+        "Technical Networking",
+        "Knowledge Sharing",
+        "Community Engagement"
       ],
-      tags: ["Collaboration", "SaaS Development", "Consulting"],
-      liveLink: "#contact",
-      liveLinkText: "Let's Talk!",
+      tags: ["Networking", "Open Source", "Tech Community"],
+      liveLink: "https://linkedin.com/in/gopalshukla0018",
+      liveLinkText: "Connect on LinkedIn",
       repoLink: null,
-      image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=600",
-      color: "border-rose-500/50",
+      image: "https://images.unsplash.com/photo-1515187029135-18ee286d815b?auto=format&fit=crop&q=80&w=600",
+      color: "border-blue-500/50",
     },
   ];
 

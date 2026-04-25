@@ -9,7 +9,7 @@ export default function About() {
       company: "Interwork Software Solutions Pvt. Ltd.",
       companyUrl: "https://www.interworksoftware.com",
       period: "April 2026 - Present",
-      description: "Contributing as a Software Engineer at Interwork, focusing on engineering high-performance software, scalable architectures, and robust web applications.",
+      description: "Contributing as a Software Engineer at Interwork Software Solutions Pvt. Ltd., focusing on engineering high-performance software, scalable architectures, and robust web applications.",
       tags: ["React", "Node.js", "System Design", "Software Engineering"],
     },
     {
@@ -26,7 +26,7 @@ export default function About() {
     {
       degree: "Bachelor of Computer Applications",
       school: "Greater Noida Institute of Management",
-      year: "2022 - 2025",
+      year: "Graduated 2025",
     },
     {
       degree: "Class XII",

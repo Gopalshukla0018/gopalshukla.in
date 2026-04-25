@@ -29,7 +29,7 @@ export default function Hero() {
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"></span>
                     <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
                   </span>
-                  Software Engineer @ Interwork | Full Stack Developer
+                  Software Engineer @ Interwork Software Solutions Pvt. Ltd.
                 </div>
               </div>
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-foreground tracking-tight">
@@ -38,7 +38,7 @@ export default function Hero() {
               </h1>
 
               <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl leading-relaxed">
-                Software Engineer at Interwork Software Solutions delivering end-to-end solutions — from React dashboards to robust Node.js APIs and scalable system architectures.
+                Software Engineer at Interwork Software Solutions Pvt. Ltd. delivering end-to-end solutions — from React dashboards to robust Node.js APIs and scalable system architectures.
               </p>
             </div>
 
