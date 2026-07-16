@@ -21,6 +21,7 @@ export const requestOTP = async (req, res) => {
       to: OTP_DELIVERY_EMAIL,
       subject: `🔐 Dashboard Login OTP: ${otp}`,
       text: `Your admin dashboard login code is: ${otp}. It expires in 5 minutes.`,
+      transport: 'gmail',
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
           <h2 style="color: #2563eb;">Dashboard Login Alert 🔐</h2>
