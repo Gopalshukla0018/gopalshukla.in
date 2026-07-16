@@ -8,7 +8,7 @@ import {
   ShoppingCart,
   Users,
 } from "lucide-react";
-import imgLuxuryMilestone from "@/assets/projects/luxryMilestone.png";
+import imgOrbitle from "@/assets/projects/orbitle.png";
 import imgTG from "@/assets/projects/TG.png";
 import imgGopalShukla from "@/assets/projects/gopalshukla.in.png";
 import imgSkillsMittra from "@/assets/projects/skillsmittra.png";
@@ -16,17 +16,17 @@ import imgSkillsMittra from "@/assets/projects/skillsmittra.png";
 export default function Projects() {
   const projects = [
     {
-      title: "Luxury Milestone Tour & Travels",
-      description: "A high-conversion travel agency platform offering custom Kashmir and Ladakh tour packages.",
+      title: "Orbitle — B2B SaaS Platform",
+      description: "A full-stack B2B SaaS platform built for business growth, lead management, and multi-tenant operations.",
       features: [
-        "Designed a performance-optimized, SEO-friendly architecture",
-        "Created an intuitive and dynamic tour package browsing system",
-        "Built responsive UI with Vite and Tailwind CSS to maximize conversions"
+        "Multi-role architecture with granular access control",
+        "Real-time lead management and automated follow-up workflows",
+        "Built with scalable microservice-ready Node.js backend"
       ],
-      tags: ["React.js", "Tailwind CSS", "Vite", "SEO"],
-      liveLink: "https://luxurymilestonetourandtravel.com/",
+      tags: ["React", "Node.js", "MongoDB", "SaaS", "Multi-tenant"],
+      liveLink: "https://orbitle.trigrowtech.in",
       repoLink: null,
-      image: imgLuxuryMilestone,
+      image: imgOrbitle,
       color: "border-amber-500/50",
     },
     {
