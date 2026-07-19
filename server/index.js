@@ -37,10 +37,14 @@ const allowedOrigins = new Set([...defaultAllowedOrigins, ...envAllowedOrigins])
 
 app.use(cors({
   origin: (origin, callback) => {
+    console.log("Incoming Origin:", origin);
+    console.log("Allowed:", [...allowedOrigins]);
+
     if (!origin || allowedOrigins.has(origin)) {
       callback(null, true);
     } else {
-      callback(new Error('Not allowed by CORS'));
+      console.log("Blocked:", origin);
+      callback(new Error("Not allowed by CORS"));
     }
   },
   credentials: true,
@@ -60,6 +64,7 @@ app.use('/api/orbitle', orbitleRoutes);
 app.listen(PORT, () => {
   console.log(` Server running on port ${PORT}`);
 });
+
 
 
 
