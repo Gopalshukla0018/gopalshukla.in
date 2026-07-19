@@ -16,13 +16,25 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 app.use(express.json());
-const allowedOrigins = process.env.ALLOWED_ORIGINS
-  ? process.env.ALLOWED_ORIGINS.split(',')
-  : ['http://localhost:5173'];
+const defaultAllowedOrigins = [
+  'http://localhost:5173',
+  'https://gopalshukla.in',
+  'https://www.gopalshukla.in',
+  'https://orbitle.trigrowtech.in',
+  'https://orbitle-omega.vercel.app',
+  'https://orbitle.in',
+  'https://www.orbitle.in',
+];
+
+const envAllowedOrigins = process.env.ALLOWED_ORIGINS
+  ? process.env.ALLOWED_ORIGINS.split(',').map((origin) => origin.trim()).filter(Boolean)
+  : [];
+
+const allowedOrigins = new Set([...defaultAllowedOrigins, ...envAllowedOrigins]);
 
 app.use(cors({
   origin: (origin, callback) => {
-    if (!origin || allowedOrigins.includes(origin)) {
+    if (!origin || allowedOrigins.has(origin)) {
       callback(null, true);
     } else {
       callback(new Error('Not allowed by CORS'));
