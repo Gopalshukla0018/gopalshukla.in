@@ -7,6 +7,7 @@ vite.config.ts.*
 
 # Environment Variables - ALL variants (NEVER commit these)
 
+.env
 .env.local
 .env.development
 .env.development.local
