@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import connectDB from '@/lib/db';
 import AdminOTP from '@/models/AdminOTP';
 import crypto from 'crypto';
-import sendEmail from '@/server/utils/sendEmail.js';
+import sendEmail from '@/lib/server/sendEmail';
 
 export async function POST(req: Request) {
   try {
@@ -10,7 +10,7 @@ export async function POST(req: Request) {
     const { email } = await req.json();
 
     const ADMIN_EMAIL = process.env.ADMIN_EMAIL;
-    const OTP_DELIVERY_EMAIL = process.env.OTP_DELIVERY_EMAIL;
+    const OTP_DELIVERY_EMAIL = process.env.OTP_DELIVERY_EMAIL || '';
 
     if (email !== ADMIN_EMAIL) {
       return NextResponse.json({ message: 'Unauthorized email address' }, { status: 401 });
