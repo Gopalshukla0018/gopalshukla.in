@@ -118,7 +118,7 @@ export default function Projects() {
               <CardHeader className="p-0">
                 <div className="w-full h-48 overflow-hidden rounded-t-xl bg-secondary/50 relative group/img">
                   <img
-                    src={project.image}
+                    src={typeof project.image === 'string' ? project.image : project.image.src}
                     alt={`${project.title} screenshot`}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover/img:scale-105"
                   />

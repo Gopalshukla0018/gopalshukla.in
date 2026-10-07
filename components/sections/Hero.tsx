@@ -97,7 +97,7 @@ export default function Hero() {
             <div className="relative aspect-square rounded-[2rem] overflow-hidden glass-card p-3 shadow-2xl transform rotate-3 hover:rotate-0 transition-all duration-500">
               <div className="absolute inset-0 bg-gradient-to-tr from-purple-primary/20 to-blue-primary/20 z-0"></div>
               <img
-                src={Gopal_Shukla_Picture}
+                src={Gopal_Shukla_Picture.src}
                 alt="Gopal Shukla - Full Stack Developer & Tech Mentor"
                 className="w-full h-full object-cover rounded-[1.5rem] relative z-10"
               />
