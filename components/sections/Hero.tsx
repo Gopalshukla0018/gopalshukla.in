@@ -100,7 +100,8 @@ export default function Hero() {
                 src={Gopal_Shukla_Picture.src}
                 alt="Gopal Shukla - Full Stack Developer & Tech Mentor"
                 className="w-full h-full object-cover rounded-[1.5rem] relative z-10"
-              />
+              /> 
+              
             </div>
 
             {/* Minimalist floating elements */}
